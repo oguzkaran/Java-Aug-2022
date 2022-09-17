@@ -1,6 +1,12 @@
 /*---------------------------------------------------------------------------------------------------------------------
-	printf metodu ile x, X, h, H karakterleri kullanılarak tamsayı türlerine ilişkin değerler hexadecimal olarak 
-	formatlanabilir. Ayrıca o (küçük O) format karakteri ile tamsayı türlerine ilişkin değerler octal oalrak formatlanabilir 
+	Gerçek sayılar ile bölme işleminde payda sıfır olsa bile işlem myapılıor. Yani exception oluşmaz. Gerçek sayılar 
+	içerisinde genel olarak Matematik'teki "belirsizlik" için kullanılan "Not a Number (NaN)" değeri vardır. Ayrıca
+	genel olarak sonsuzluk (Matematik'teki tanımsızlık) için kullanılan -Infinity ve +Infinity değerleri de vardır.
+	Bu özel değerler dışında da başka özel değerler bulunmaktadır. Bu durumda gerçek sayılar ile bölme işleminde pay
+	sıfırdan farklı, payda sıfır ise payın işaretine göre +Infinity veya -Infinity, pay ve paydanın her ikisi birden
+	sıfır ise NaN sonucu elde edilir.
+	
+	Aşağıdaki örneği çeşitli değerler girerek çalıştırıp sonuçları gözlemleyiniz
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
@@ -9,15 +15,14 @@ class App {
 	{		
 		java.util.Scanner kb = new java.util.Scanner(System.in);
 		
-		System.out.print("Bir sayı giriniz:");
-		int a = Integer.parseInt(kb.nextLine());				
+		System.out.print("2 tane sayı giriniz:");
+		double a = kb.nextDouble();
+		double b = kb.nextDouble();
 		
-		System.out.printf("a = %d%n", a);
-		System.out.printf("a = %x%n", a);
-		System.out.printf("a = %X%n", a);
-		System.out.printf("a = %h%n", a);
-		System.out.printf("a = %H%n", a);
-		System.out.printf("a = %o%n", a);		
+		double result = a / b;
+		
+		System.out.printf("%f / %f = %f%n", a, b, result);
 	}
 }
+
 
