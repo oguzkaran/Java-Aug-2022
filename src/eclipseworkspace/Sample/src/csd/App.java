@@ -1,13 +1,13 @@
 /*---------------------------------------------------------------------------------------------------------------------
-	Math sınıfının PI ve E elemanları
+	Karakter sabitleri
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
-	{		
-		System.out.println(Math.PI);
-		System.out.println(Math.E);
+	{	
+		char c = 'D';
+		
+		System.out.printf("c = %c%n", c);
 	}
 }
-
