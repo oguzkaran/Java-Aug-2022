@@ -1,17 +1,22 @@
 /*---------------------------------------------------------------------------------------------------------------------	
-	-- operatörü tek operandlı ve hem prefix hem de postfix olarak kullanılabilen bir operatördür. Bu operatör ister 
-	prefix ister postfix olarak kullanılsın operandına ilişkin değeri bir azaltır. Yani operandının içerisindeki değerin
-	1 eksiği ile değiştirir. Bu operatörün operandının değişken olması zorunludur
+	Anahtar Notlar: Okunabilirlik/algılanabilirlik açısından tek operandlı operatörleri genel olarak operandına bitişik
+	biçimde yazacağız. İki operandlı operatörleri de özel ama önemli olan bazı operatörler dışında operandları ile 
+	operatör arasında yalnızca bir tane "space" karakteri olacak şekilde yazacağız
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{
-		int a = 10;
+		int a, b, c;
 		
-		a = a + 1;
+		a = 2;
+		b = 3;
 		
-		System.out.printf("a = %d%n", a);	
+		c = a++-++b;
+		
+		System.out.printf("a = %d%n", a);
+		System.out.printf("b = %d%n", b);
+		System.out.printf("c = %d%n", c);
 	}
 }
