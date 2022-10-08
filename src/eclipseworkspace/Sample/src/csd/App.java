@@ -1,19 +1,21 @@
+/*---------------------------------------------------------------------------------------------------------------------	
+	 Aşağıdaki örnekte atama operatörünün operandının değişken olmamasından dolayı error oluşur. Burada ikinci atama 
+	 operatörünün operandının değişken olmaması durumu vardır
+-----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{
-		int a, b, c;
+		int a, b, c;		
 		
-		a = 2;
-		b = 3;
 		
-		c = a-- - --b;
-
+		b = c;
 		
-		System.out.printf("a = %d%n", a);
+		//a = (b = c) = 10;
+		
+		System.out.printf("a = %d%n", a);		
 		System.out.printf("b = %d%n", b);
 		System.out.printf("c = %d%n", c);
-		
 	}
 }
