@@ -1,21 +1,38 @@
 /*---------------------------------------------------------------------------------------------------------------------	
-	 Aşağıdaki örnekte atama operatörünün operandının değişken olmamasından dolayı error oluşur. Burada ikinci atama 
-	 operatörünün operandının değişken olmaması durumu vardır
+	Aşağıdaki örneği inceleyiniz (Ömer Faruk CİN'in sorusu)
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
+	{		
+		boolean result;
+		
+		result = Sample.bar() || Sample.tar() && Sample.bar() || Sample.foo();
+		
+		System.out.printf("result = %b%n", result);
+	}
+}
+
+class Sample {
+	public static boolean foo()
 	{
-		int a, b, c;		
+		System.out.println("foo");
 		
+		return true;
+	}
+	
+	public static boolean bar()
+	{
+		System.out.println("bar");
 		
-		b = c;
+		return false;
+	}
+	
+	public static boolean tar()
+	{
+		System.out.println("tar");
 		
-		//a = (b = c) = 10;
-		
-		System.out.printf("a = %d%n", a);		
-		System.out.printf("b = %d%n", b);
-		System.out.printf("c = %d%n", c);
+		return false;
 	}
 }
