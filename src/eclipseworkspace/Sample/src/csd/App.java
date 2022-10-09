@@ -1,38 +1,28 @@
-/*---------------------------------------------------------------------------------------------------------------------	
-	Aşağıdaki örneği inceleyiniz (Ömer Faruk CİN'in sorusu)
+/*----------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki örneği inceleyiniz
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
-	{		
-		boolean result;
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
 		
-		result = Sample.bar() || Sample.tar() && Sample.bar() || Sample.foo();
+		System.out.print("Bir sayı giriniz:");
+		int val = kb.nextInt();		
 		
-		System.out.printf("result = %b%n", result);
+		if (!NumberUtil.isEven(val))
+			System.out.println("Tek sayı girdiniz");
+		else
+			System.out.println("Çift sayı girdiniz");
+		
+		System.out.println("Tekrar yapıyor musunuz?");
 	}
 }
 
-class Sample {
-	public static boolean foo()
+class NumberUtil {
+	public static boolean isEven(int val)
 	{
-		System.out.println("foo");
-		
-		return true;
-	}
-	
-	public static boolean bar()
-	{
-		System.out.println("bar");
-		
-		return false;
-	}
-	
-	public static boolean tar()
-	{
-		System.out.println("tar");
-		
-		return false;
+		return val % 2 == 0;
 	}
 }
