@@ -1,31 +1,64 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	while döngüsü ile n-kez dönen döngü:
-	
-	Örneğin n = 4 olsun
-	Koşul kontrolleri							: 4 > 0 -> 3 > 0 -> 2 > 0 -> 1 > 0 -> 0 > 0 
-	Döngü içerisinde her adımda n'nin değeri	: 3 -> 2 -> 1 -> 0  
-	Sayaç									 	: 1 -> 2 -> 3 -> 4
-	Döngü sonrası n'nin değeri					: -1
-	
-	Bu döngüde n-nin değerinin döngünün her adımında değiştiğine, dolayısıyla döngü sonrasında döngü öncesindeki değerin
-	kaybedildiğine dikkat ediniz. Bu döngü kullanılacaksa ve döngüden sonra n-nin eski değerine ihtiyaç olacakse döngü
-	öncesinde n-nin değeri saklanmalıdır. Bu kalıbın kullanılacağı zorunlu durumlar yoktur. Ancak bazı programcılar bu
-	kalıbı kullanabilirler. Böyle bir kodun anlaşılmas açısında bu kalıp bilinmelidir  
+	 
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{
-		java.util.Scanner kb = new java.util.Scanner(System.in);
-		System.out.print("Bir sayı giriniz:");
-		int n = kb.nextInt();
-		
-		while (n-- > 0)			
-			System.out.printf("%d ", n);		
-			
-		System.out.println();		
-		System.out.printf("Döngü sonrası n = %d%n", n);
+		FindPosNegSumCountsApp.run();		
 	}
 }
 
+class FindPosNegSumCountsApp {
+	public static void printPositivesResult(int posSum, int posCount)
+	{
+		if (posCount != 0)
+			System.out.printf("%d tane pozitif sayının toplamı:%d%n", posCount, posSum);
+		else
+			System.out.println("Hiç pozitif sayı girmediniz!...");
+	}
+	
+	public static void printNegativesResult(int negSum, int negCount)
+	{
+		if (negCount != 0)
+			System.out.printf("%d tane negatif sayının toplamı:%d%n", negCount, negSum);
+		else
+			System.out.println("Hiç negatif sayı girmediniz!...");
+	}
+	
+	public static void printResult(int posSum, int posCount, int negSum, int negCount)
+	{
+		printPositivesResult(posSum, posCount);
+		printNegativesResult(negSum, negCount);
+	}
+	
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		System.out.println("Sayıları girmeye başlayınız:");	
+		
+		int posCount, posSum, negCount, negSum;
+		
+		posCount = negCount = 0;
+		posSum = negSum = 0;
+		
+		int val;
+		
+		System.out.print("Bir sayı giriniz:");
+		while ((val = Integer.parseInt(kb.nextLine())) != 0) {
+			if (val > 0) {
+				posSum += val;
+				++posCount;				
+			}
+			else {
+				negSum += val;
+				++negCount;
+			}
+				
+			System.out.print("Bir sayı giriniz:");
+		}
+		
+		printResult(posSum, posCount, negSum, negCount);
+	}			
+}
