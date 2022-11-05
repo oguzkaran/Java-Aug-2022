@@ -30,7 +30,6 @@ class IsValidDateTest {
 				System.out.printf("%02d/%02d/%04d tarihi geçerlidir%n", day, month, year);
 			else
 				System.out.println("Geçersiz tarih");
-
 		}
 		
 		System.out.println("Tekrar yapıyor munuz?");
