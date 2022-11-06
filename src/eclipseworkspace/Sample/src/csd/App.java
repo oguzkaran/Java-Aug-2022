@@ -16,11 +16,11 @@ package csd;
 class App {
 	public static void main(String [] args)
 	{
-		GetDayOfYearTest.run();
+		GetDayOfWeekTest.run();
 	}
 }
 
-class GetDayOfYearTest {
+class GetDayOfWeekTest {
 	public static void run()
 	{
 		java.util.Scanner kb = new java.util.Scanner(System.in);
@@ -51,7 +51,7 @@ class DateUtil {
 			return;
 		}
 		
-		printDateTRByDayOfWeek(day, month, year, dayOfWeek);
+		printDateByDayOfWeekTR(day, month, year, dayOfWeek);
 		
 		if (isWeekend(day, month, year))
 			System.out.println("Bugün kurs var. Tekrar yaptınız mı?");
@@ -59,7 +59,7 @@ class DateUtil {
 			System.out.println("Kurs günü yaklaşıyor. Tekrar yapmayı unutmayınız!...");
 	}
 	
-	public static void printDateTRByDayOfWeek(int day, int month, int year, int dayOfWeek)
+	public static void printDateByDayOfWeekTR(int day, int month, int year, int dayOfWeek)
 	{
 		switch (dayOfWeek) {
 		case 0:
@@ -85,15 +85,32 @@ class DateUtil {
 		}
 	}
 	
-	
 	public static int getDayOfWeek(int day, int month, int year)
 	{
-		//TODO:		
+		int totalDays;
+		
+		if (year < 1900 || (totalDays = getDayOfYear(day, month, year)) == -1)
+			return -1;		
+		
+		return getTotalDays(year, totalDays) % 7;
+	}
+	
+	public static int getTotalDays(int year, int totalDays)
+	{
+		for (int y = 1900; y < year; ++y) {
+			totalDays += 365;
+			if (isLeapYear(y))
+				++totalDays;
+		}
+		
+		return totalDays;
 	}
 	
 	public static boolean isWeekend(int day, int month, int year)
 	{
-		//TODO:
+		int dayOfWeek = getDayOfWeek(day, month, year);
+		
+		return dayOfWeek == 0 || dayOfWeek == 6;
 	}
 	
 	public static boolean isWeekday(int day, int month, int year)
