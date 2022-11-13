@@ -1,81 +1,56 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Homework-002-4.sorunun bir çözümü
-	(Not: Çözüm çalışma sorusunun verildiği tarihte işlenmiş olan konulara göre yazılmıştır) 
+	Java 12 ile birlikte "preview" olarak "switch expression" dile dahil edilmiştir. Bu durumda switch ifade biçiminde de 
+	kullanılabilecek şekilde sentaks ve semantik açıdan geliştirilmiştir. switch'in bu şekildeki kullanımı
+	"switch expression statement" olarak da adlandırılabilir. Yani kabaca switch expression semantiği statement biçiminde de
+	kullanılabilir. 
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{
-		BallFallApp.run();
+		PrintDiamondApp.run();
 	}
 }
 
-class BallFallApp {
-	public static void run()
+
+class PrintDiamondApp {
+	public static void printAbove(int n)
 	{
-		java.util.Scanner kb = new java.util.Scanner(System.in);
-		
-		for (;;) {
-			System.out.print("Input width and height:");
-			int width = kb.nextInt();
-			int height = kb.nextInt();
+		for (int i = 1; i < n; ++i) {
+			for (int k = 0; k < n - i; ++k)
+				System.out.print(' ');
 			
-			if (width == 0)
-				break;
+			for (int k = 0; k < 2 * i - 1; ++k)
+				System.out.print('*');
 			
-			BallFall.play(width, height);
+			System.out.println();			
 		}		
 	}
 	
-}
-
-class BallFall {
-	public static void fillSpace(int begin, int end)
+	public static void printBelow(int n)
 	{
-		for (int i = begin; i < end; ++i)
-			System.out.print(' ');
+		for (int i = 0; i < n; ++i) {
+			for (int k = 0; k < i; ++k)
+				System.out.print(' ');
+			
+			for (int k = 0; k < 2 * (n - i) - 1; ++k)
+				System.out.print('*');
+			
+			System.out.println();			
+		}		
 	}
 	
-	public static void fillBall(int ballIndex, int end)
+	public static void printDiamond(int n)
 	{
-		fillSpace(0, ballIndex);
-		System.out.print('*');
-		fillSpace(ballIndex + 1, end);
+		printAbove(n);
+		printBelow(n);
 	}
-	
-	public static boolean updateRightFlag(boolean isRight, int ballIndex, int width)
-	{
-		if (ballIndex == 0)
-			isRight = true;
-		else if (ballIndex == width - 1)
-			isRight = false;
 		
-		return isRight;
-	}
-	
-	public static int updateBallIndex(boolean isRight, int ballIndex)
+	public static void run()
 	{
-		if (isRight)
-			return ballIndex + 1;
-		
-		return ballIndex - 1;
-	}
-	
-	public static void play(int width, int height)
-	{
-		int ballIndex = 0;
-		boolean isRight = false;
-		
-		for (int i = 1; i <= height; ++i) {
-			System.out.print('|');
-			fillBall(ballIndex, width);
-			if (width != 1) {
-				isRight = updateRightFlag(isRight, ballIndex, width);
-				ballIndex = updateBallIndex(isRight, ballIndex);
-			}
-			System.out.println('|');
-		}
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		System.out.print("Bir sayı giriniz:");
+		printDiamond(kb.nextInt());
 	}
 }
-
