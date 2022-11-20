@@ -1,15 +1,19 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	İşlem öncesi Otomatik Tür Dönüşümü:
+	Tür dönüştürme operatörü
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{
-		int a = 1;;
-		boolean b;
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		System.out.print("Bir tamsayı giriniz:");
+		long a = kb.nextLong();
+		int b;
 		
-		b = a; //error
+		b = (int)a;
+		
+		System.out.printf("b = %d%n", b);		
 	}
 }
 
