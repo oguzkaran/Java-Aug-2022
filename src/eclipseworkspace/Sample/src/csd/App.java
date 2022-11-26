@@ -1,19 +1,21 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Tür dönüştürme operatörü
+	T1 a;
+	T2 b;
+	
+	a op= b => a = (T1)(a op b)
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{
-		java.util.Scanner kb = new java.util.Scanner(System.in);
-		System.out.print("Bir tamsayı giriniz:");
-		long a = kb.nextLong();
-		int b;
+		int a = 10;
+		int b = 20;
 		
-		b = (int)a;
+		a += Math.sqrt(b); //a = (int)(a + Math.sqrt(b));
 		
-		System.out.printf("b = %d%n", b);		
+		//...
 	}
 }
+
 
