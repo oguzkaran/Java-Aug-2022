@@ -1,21 +1,36 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	T1 a;
-	T2 b;
-	
-	a op= b => a = (T1)(a op b)
+	Koşul Operatörü (Conditional Operator): 
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{
-		int a = 10;
-		int b = 20;
+		System.out.println(Util.e());
+	}
+}
+
+class Util {
+	public static double e()
+	{
+		double result = 2;
 		
-		a += Math.sqrt(b); //a = (int)(a + Math.sqrt(b));
+		for (int i = 2; i < 10; ++i)
+			result += 1D / NumberUtil.factorial(i);
 		
-		//...
+		return result;
 	}
 }
 
 
+class NumberUtil {
+	public static long factorial(int n)
+	{
+		long result = 1;
+		
+		for (int i = 2; i <= n; ++i)
+			result *= i;		
+		
+		return result;
+	}	
+}
