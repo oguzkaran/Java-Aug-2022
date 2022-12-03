@@ -1,36 +1,52 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Koşul Operatörü (Conditional Operator): 
+	Aşağıdaki örnekte tam uyum vardır
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{
-		System.out.println(Util.e());
+		int a = 10;
+		short b = 20;
+		
+		Sample.foo(a, (long)b);
 	}
 }
 
-class Util {
-	public static double e()
+class Sample {
+	public static void foo() //#1
 	{
-		double result = 2;
-		
-		for (int i = 2; i < 10; ++i)
-			result += 1D / NumberUtil.factorial(i);
-		
-		return result;
+		System.out.println("foo");		
+	}
+	
+	public static void foo(int a) //#2  
+	{
+		System.out.println("foo, int");
+	}
+	
+	public static void foo(double a) //#3
+	{
+		System.out.println("foo, double");
+	}
+	
+	public static void foo(double a, int b) //#4
+	{
+		System.out.println("foo, double, int");
+	}
+	
+	public static void foo(int b, long a) //#5
+	{
+		System.out.println("foo, int, long");
+	}
+	
+	public static void foo(short b, long a) //#6
+	{
+		System.out.println("foo, short, long");
+	}
+	
+	public static void bar(int a, double b) //#7
+	{
+		System.out.println("bar, int, double");
 	}
 }
 
-
-class NumberUtil {
-	public static long factorial(int n)
-	{
-		long result = 1;
-		
-		for (int i = 2; i <= n; ++i)
-			result *= i;		
-		
-		return result;
-	}	
-}
