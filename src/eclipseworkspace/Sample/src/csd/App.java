@@ -1,52 +1,44 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Aşağıdaki örnekte tam uyum vardır
+	- Sınıf türünden bellekte ayrılan bir alana o sınıf türünden nesne (object) denir
+	
+	- Nesneler heap'de yaratılır. Java'da stack'te nesne yaratılamaz
+	
+	- Java'da nesnenin kendisini değil, adresini, adresi ile aynı türden bir referansta tutulabilir
+	
+	- Bir nesneyi yaratmak için new operatörü kullanılır. new operatörünün kullanımının genel biçimi:
+		new <sınıf ismi>([argümanlar]);
+	new operatörü özel amaçlı, tek operandlı (unary) ve önek (prefix) durumunda bir operatördür. new operatörü
+	nesne yaratılması adımları tamamlandıktan sonra hewp'te yaratılmış olan nesnenin adresini (referansını) üretir. 
+	Bu durumda bu operatörün ürettiği değer yani adres aynı türden bir referansa atanabilir 
+	
+	- Bir nesne ilgili sınıf türünden bir örnektir. Buna "instance" da denir
+	
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{
-		int a = 10;
-		short b = 20;
+		Sensor s; //s bir referans (değişken)
+		Person p; //p bir referans (değişken)
+		Customer c; //c bir referans (değişken)
 		
-		Sample.foo(a, (long)b);
+		s = new Sensor();
+		p = new Person();
+		c = new Customer();
+	
+		//...
 	}
 }
 
-class Sample {
-	public static void foo() //#1
-	{
-		System.out.println("foo");		
-	}
-	
-	public static void foo(int a) //#2  
-	{
-		System.out.println("foo, int");
-	}
-	
-	public static void foo(double a) //#3
-	{
-		System.out.println("foo, double");
-	}
-	
-	public static void foo(double a, int b) //#4
-	{
-		System.out.println("foo, double, int");
-	}
-	
-	public static void foo(int b, long a) //#5
-	{
-		System.out.println("foo, int, long");
-	}
-	
-	public static void foo(short b, long a) //#6
-	{
-		System.out.println("foo, short, long");
-	}
-	
-	public static void bar(int a, double b) //#7
-	{
-		System.out.println("bar, int, double");
-	}
+class Sensor {
+	//...
 }
 
+class Person {
+	//...
+}
+
+class Customer {
+	//...
+}
