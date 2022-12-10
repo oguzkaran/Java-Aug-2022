@@ -1,44 +1,35 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	- Sınıf türünden bellekte ayrılan bir alana o sınıf türünden nesne (object) denir
-	
-	- Nesneler heap'de yaratılır. Java'da stack'te nesne yaratılamaz
-	
-	- Java'da nesnenin kendisini değil, adresini, adresi ile aynı türden bir referansta tutulabilir
-	
-	- Bir nesneyi yaratmak için new operatörü kullanılır. new operatörünün kullanımının genel biçimi:
-		new <sınıf ismi>([argümanlar]);
-	new operatörü özel amaçlı, tek operandlı (unary) ve önek (prefix) durumunda bir operatördür. new operatörü
-	nesne yaratılması adımları tamamlandıktan sonra hewp'te yaratılmış olan nesnenin adresini (referansını) üretir. 
-	Bu durumda bu operatörün ürettiği değer yani adres aynı türden bir referansa atanabilir 
-	
-	- Bir nesne ilgili sınıf türünden bir örnektir. Buna "instance" da denir
-	
+	Sınıfın non-static veri elemanları her nesne için ayrıca yaratılırlar ve nesnenin içerisinde bulunurlar. Sınıfın
+	non-static veri elemanlarına sınıf dışından (yani başka bir sınıfın içinden) referans ve nokta operatörü ile erişilir. 
+	Nokta operatörü özel amaçlı, iki operandlı ve araek durumunda bir operatördür. Nokta operatörünün birinci operandı
+	bir referans, ikinci operandı bir veri elemanı ise bu durumda nokta operatörü o veri elemanına ilişkin değişkeni üretir.
+	Aslında referans ve nokta operatörü ile veri elemanı ismi kullanımı o referansın gösterdiği nesnenin ilgili veri
+	elemanına erişmek anlamına gelir. Her new işlemiyle yeni bir nesne yaratıldığını anımsayınız
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{
-		Sensor s; //s bir referans (değişken)
-		Person p; //p bir referans (değişken)
-		Customer c; //c bir referans (değişken)
+		Sample s = new Sample();
+		Sample k = new Sample();
 		
-		s = new Sensor();
-		p = new Person();
-		c = new Customer();
-	
-		//...
+		s.val = 10;
+		s.flag = true;
+		
+		k.val = 20;
+		k.flag = false;
+		
+		System.out.printf("s.val = %d%n", s.val);
+		System.out.printf("s.flag = %b%n", s.flag);
+		System.out.printf("k.val = %d%n", k.val);
+		System.out.printf("k.flag = %b%n", k.flag);
 	}
 }
 
-class Sensor {
-	//...
-}
-
-class Person {
-	//...
-}
-
-class Customer {
+class Sample {
+	public int val;
+	public boolean flag;
+	
 	//...
 }
