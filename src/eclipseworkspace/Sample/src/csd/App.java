@@ -1,24 +1,18 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Sınıfın non-static veri elemanları her nesne için ayrıca yaratılırlar ve nesnenin içerisinde bulunurlar. Sınıfın
-	non-static veri elemanlarına sınıf dışından (yani başka bir sınıfın içinden) referans ve nokta operatörü ile erişilir. 
-	Nokta operatörü özel amaçlı, iki operandlı ve araek durumunda bir operatördür. Nokta operatörünün birinci operandı
-	bir referans, ikinci operandı bir veri elemanı ise bu durumda nokta operatörü o veri elemanına ilişkin değişkeni üretir.
-	Aslında referans ve nokta operatörü ile veri elemanı ismi kullanımı o referansın gösterdiği nesnenin ilgili veri
-	elemanına erişmek anlamına gelir. Her new işlemiyle yeni bir nesne yaratıldığını anımsayınız
+	Bir nesnenin bellekte kapladığı "en az non-static veri elemanlarının toplam uzunluğu kadardır". Bu durumda aynı 
+	türden nesneler için aynı uzunlukta yer ayrılır. Farklı türden nesneler için farklı veri elemanları olabileceğinden
+	aynı uzunlukta yer ayrılması gerekmez. 
+	
+	Türü ne olursa olsun tüm referansların uzunlukları aynıdır. Bu da adreslenebilecek sayıları tutabilecek uzunlukturç 
+	Örneğin 64 bit sistemlerde tüm referanslar 64 bit (8 byte), 32 bit sistemlerde ise 32 bit (4 byte) uzunluğundadır
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
-	{
+	{	
 		Sample s = new Sample();
-		Sample k = new Sample();
-		
-		s.val = 10;
-		s.flag = true;
-		
-		k.val = 20;
-		k.flag = false;
+		Sample k = new Sample();		
 		
 		System.out.printf("s.val = %d%n", s.val);
 		System.out.printf("s.flag = %b%n", s.flag);
@@ -33,3 +27,4 @@ class Sample {
 	
 	//...
 }
+
