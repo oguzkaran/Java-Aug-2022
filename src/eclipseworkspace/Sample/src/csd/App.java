@@ -1,29 +1,64 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Sınıfın static veri elemanı 1 tanedir. Bu elemanın kullanılabilmesi için nesne yaratılması gerekmez. Sınıfın static bir
-	veri elemanına sınıf dışından sınıf ismi ve nokta operatörü ile erişilebilir. Sınıfın static veri elemanları da 
-	yaratıldıklarında default değer alırlar. Sınıfın static veri elemanları sınıfın bir elemanı (metot, veri elemanı vb)
-	ilk kez kullanıldığında yaratılır ve programın sonuna kadar yaşarlar. Ayrıntılar ileride ele alınacaktır
+	Sınıf Çalışması: Katsayıları klavyeden alınan ikinci dereceden bir denklemin köklerini bulup ekrana yazdıran
+	programı yazınız.
+	
+	Aşağıdaki örneği inceleyiniz
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
-	{		
-		System.out.printf("Sample.val = %d%n", Sample.val);
-		System.out.printf("Sample.flag = %b%n", Sample.flag);
-		
-		++Sample.val;
-		Sample.flag = true;
-		
-		System.out.printf("Sample.val = %d%n", Sample.val);
-		System.out.printf("Sample.flag = %b%n", Sample.flag);		
+	{
+		QuadraticEquationSolverApp.run();
 	}
 }
 
-class Sample {
-	public static int val;
-	public static boolean flag;
+class QuadraticEquationSolverApp {
+	public static void run()
+	{
+		java.util.Scanner kb = new java.util.Scanner(System.in);
+		System.out.print("Katsayıları giriniz:");
+		double a = kb.nextDouble();
+		double b = kb.nextDouble();
+		double c = kb.nextDouble();
+		
+		QuadraticEquation result =  new QuadraticEquation();
+		
+		result.solve(a, b, c);
+		
+		if (result.exists)
+			System.out.printf("x1 = %f, x2 = %f%n", result.x1, result.x2);
+		else
+			System.out.println("Gerçek kök yok");
+	}
+}
+
+class QuadraticEquation {
+	public double x1, x2;
+	public boolean exists;
 	
-	//...
+	public static double calculateDelta(double a, double b, double c)
+	{
+		return b * b - 4 * a * c;
+	}
+	
+	public void doWorkForRoots(double delta, double a, double b)
+	{
+		double sqrtDelta = Math.sqrt(delta);	
+		
+		x1 = (-b + sqrtDelta) / (2 * a);
+		x2 = (-b - sqrtDelta) / (2 * a);
+		exists = true;
+	}	
+	
+	
+	
+	public void solve(double a, double b, double c)
+	{
+		double delta = calculateDelta(a, b, c);		
+		
+		if (delta >= 0)
+			doWorkForRoots(delta, a, b);		
+	}
 }
 
