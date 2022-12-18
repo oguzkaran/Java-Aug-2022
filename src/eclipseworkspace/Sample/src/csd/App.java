@@ -1,64 +1,67 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Sınıf Çalışması: Katsayıları klavyeden alınan ikinci dereceden bir denklemin köklerini bulup ekrana yazdıran
-	programı yazınız.
-	
-	Aşağıdaki örneği inceleyiniz
+	Homework-005-3. sorunun bir çözümü
+	(Not: Çözüm çalışma sorusunun verildiği tarihte işlenmiş olan konulara göre yazılmıştır)	
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{
-		QuadraticEquationSolverApp.run();
+		AreFriendsTest.run();
 	}
 }
 
-class QuadraticEquationSolverApp {
+class AreFriendsTest {
 	public static void run()
 	{
-		java.util.Scanner kb = new java.util.Scanner(System.in);
-		System.out.print("Katsayıları giriniz:");
-		double a = kb.nextDouble();
-		double b = kb.nextDouble();
-		double c = kb.nextDouble();
-		
-		QuadraticEquation result =  new QuadraticEquation();
-		
-		result.solve(a, b, c);
-		
-		if (result.exists)
-			System.out.printf("x1 = %f, x2 = %f%n", result.x1, result.x2);
-		else
-			System.out.println("Gerçek kök yok");
+		AreFriends3DigitsTest.run();
+		AreFriends4DigitsTest.run();
 	}
 }
 
-class QuadraticEquation {
-	public double x1, x2;
-	public boolean exists;
-	
-	public static double calculateDelta(double a, double b, double c)
+class AreFriends4DigitsTest {
+	public static void run()
 	{
-		return b * b - 4 * a * c;
+		System.out.println("4 basamaklı arkadaş sayılar:");
+		
+		for (int a = 1000; a <= 9999; ++a)
+			for (int b = a + 1; b <= 9999; ++b)
+				if (NumberUtil.areFriends(a, b))
+					System.out.printf("(%d, %d)%n", a, b);
+		
+	}
+}
+
+
+class AreFriends3DigitsTest {
+	public static void run()
+	{
+		System.out.println("3 basamaklı arkadaş sayılar:");
+		
+		for (int a = 100; a <= 999; ++a)
+			for (int b = a + 1; b <= 999; ++b)
+				if (NumberUtil.areFriends(a, b))
+					System.out.printf("(%d, %d)%n", a, b);
+		
+	}
+}
+
+class NumberUtil {
+	public static boolean areFriends(int a, int b)
+	{
+		return sumFactors(a) == b && sumFactors(b) == a;
 	}
 	
-	public void doWorkForRoots(double delta, double a, double b)
+	public static int sumFactors(int val)
 	{
-		double sqrtDelta = Math.sqrt(delta);	
+		int result = 1;
+		int sqrtVal = (int)Math.sqrt(val);
 		
-		x1 = (-b + sqrtDelta) / (2 * a);
-		x2 = (-b - sqrtDelta) / (2 * a);
-		exists = true;
-	}	
-	
-	
-	
-	public void solve(double a, double b, double c)
-	{
-		double delta = calculateDelta(a, b, c);		
+		for (int i = 2; i <= sqrtVal; ++i)
+			if (val % i == 0)
+				result += (i == val / i) ? i : (i + val / i);
 		
-		if (delta >= 0)
-			doWorkForRoots(delta, a, b);		
+		return result;
 	}
 }
 
