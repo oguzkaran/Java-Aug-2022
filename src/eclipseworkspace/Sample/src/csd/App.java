@@ -1,72 +1,45 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Sınıf Çalışması: Parametresi ile aldığı bir yazının Türkçe pangram olup olmadığını test eden isPangramTR ve 
-	İngilizce pangram olup olmadığını test eden isPangramEN metotlarını StringUtil sınıfı içerisinde yazınız ve aşağıdaki
-	kod ile test ediniz
-	Pangram: İçerisinde özel isim olmayan ve ilgili dilin alfabesindeki tüm karakterleri içeren anlamlı cümlelere denir.
-	
-	Programda özel isim ve anlam dikkate alınmayacaktır
-	
-	İnglizce: The quick brown fox jumps over the lazy dog
-	Türkçe: Pijamalı hasta yağız şoföre çabucak güvendi
+	Sınıf Çalışması: Parametresi ile aldığı int türden bir n değeri için n tane rasgele üretilmiş Türkçe alfabedeki
+	karakterlerden oluşan bir yazı döndüren getRandomTextTR ile n tane rasgele üretilmiş İnglizce alfabedeki
+	karakterlerden oluşan bir yazı döndüren getRandomTextEN metotlarını StringUtil sınıf içerisinde yazını ve aşağıdaki
+	kod ile test ediniz 
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{
-		IsPangramTest.run();
+		GetRandomTextTest.run();
 	}
 }
 
-class IsPangramTest {
+class GetRandomTextTest {
 	public static void run()
 	{
 		java.util.Scanner kb = new java.util.Scanner(System.in);
 		
-		IsPangramTestTR.run(kb);
-		IsPangramTestEN.run(kb);
-	}
-}
-
-
-
-class IsPangramTestTR {
-	public static void run(java.util.Scanner kb)
-	{
 		for (;;) {
-			System.out.print("Bir yazı giriniz:");
-			String s = kb.nextLine();
+			System.out.print("Bir sayı giriniz:");
+			int n = Integer.parseInt(kb.nextLine());
 			
-			if ("elma".equals(s))
+			if (n < 1)
 				break;
 			
-			System.out.println(StringUtil.isPangramTR(s) ? "Pangram" : "Pangram değil");
+			System.out.printf("Şifre:%s%n", StringUtil.getRandomTextTR(n));
+			System.out.printf("Password:%s%n", StringUtil.getRandomTextEN(n));
 		}
+		
+		System.out.println("Tekrar yapıyor musunuz?");
 	}
 }
 
-class IsPangramTestEN {
-	public static void run(java.util.Scanner kb)
-	{
-		for (;;) {
-			System.out.print("Input a text:");
-			String s = kb.nextLine();
-			
-			if ("quit".equals(s))
-				break;
-			
-			System.out.println(StringUtil.isPangramEN(s) ? "Pangram" : "Not a Pangram");
-		}
-	}
-}
-
-class StringUtil {
-	public static boolean isPangramTR(String s)
+class StringUtil {	
+	public static String getRandomTextTR(int n)
 	{
 		//TODO:
-	}
+	}	
 	
-	public static boolean isPangramEN(String s)
+	public static String getRandomTextEN(int n)
 	{
 		//TODO:
 	}
