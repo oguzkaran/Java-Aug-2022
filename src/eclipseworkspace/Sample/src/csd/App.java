@@ -1,47 +1,46 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Sınıf Çalışması: Parametresi ile aldığı int türden bir n değeri için n tane rasgele üretilmiş Türkçe alfabedeki
-	karakterlerden oluşan bir yazı döndüren getRandomTextTR ile n tane rasgele üretilmiş İnglizce alfabedeki
-	karakterlerden oluşan bir yazı döndüren getRandomTextEN metotlarını StringUtil sınıf içerisinde yazını ve aşağıdaki
-	kod ile test ediniz 
+	Sınıf Çalışması: Parametresi ile aldığı bir yazının palindrom olup olmadığını test eden isPalindrome isimli metodu 
+	yazınız ve aşağıdaki kod ile test ediniz.
+	
+	Palindrom: Yalnızca alfabetik karakterleri tersten okunduğunda aynı olan yazılara denir. Detaylar gözardı edilerek
+	bu tanım yapılabilir
+	
+	Örnekler:
+	Ey Edip Adana'da pide ye	-> eyedipadanadapideye
+	Anastas mum satsana 		-> anastasmumsatsana
+	Ali Papila 					-> alipapila
+	
+	Not: İleride daha iyisi yazılacaktır
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
 class App {
 	public static void main(String [] args)
 	{
-		GetRandomTextTest.run();
+		IsPalindromeTest.run();
 	}
 }
 
-class GetRandomTextTest {
+class IsPalindromeTest {
 	public static void run()
-	{
+	{		
 		java.util.Scanner kb = new java.util.Scanner(System.in);
 		
 		for (;;) {
-			System.out.print("Bir sayı giriniz:");
-			int n = Integer.parseInt(kb.nextLine());
+			System.out.print("Bir yazı giriniz:");
+			String s = kb.nextLine();
 			
-			if (n < 1)
+			if ("elma".equals(s))
 				break;
 			
-			System.out.printf("Şifre:%s%n", StringUtil.getRandomTextTR(n));
-			System.out.printf("Password:%s%n", StringUtil.getRandomTextEN(n));
-		}
-		
-		System.out.println("Tekrar yapıyor musunuz?");
+			System.out.printf(StringUtil.isPalindrome(s) ? "Palindrom" : "Palindrom değilk");			
+		}		
 	}
 }
 
 class StringUtil {	
-	public static String getRandomTextTR(int n)
-	{
-		//TODO:
-	}	
-	
-	public static String getRandomTextEN(int n)
+	public static boolean isPalindrome(String s)
 	{
 		//TODO:
 	}
 }
-
