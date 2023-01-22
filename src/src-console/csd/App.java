@@ -6,7 +6,12 @@ package csd;
 class App {
 	public static void main(String [] args) 
 	{
-		System.out.println("Hello, World");
-	}
+		System.out.println("App.main");		
+		msd.Sample.foo();
+		msd.Sample.main(args);
+	}	
 } 
 
+public class A {
+
+}
