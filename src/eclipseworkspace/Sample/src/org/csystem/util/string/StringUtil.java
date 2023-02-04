@@ -10,6 +10,8 @@
 ----------------------------------------------------------------*/
 package org.csystem.util.string;
 
+import java.util.*;
+
 public class StringUtil {	
 	
 	public static String capitalize(String s)
@@ -32,7 +34,7 @@ public class StringUtil {
 		return countString(s1.toLowerCase(), s2.toLowerCase());
 	}		
 	
-	public static String getRandomText(java.util.Random r, int n, String sourceText)
+	public static String getRandomText(Random r, int n, String sourceText)
 	{
 		String str = "";
 		
@@ -46,20 +48,20 @@ public class StringUtil {
 	
 	public static String getRandomTextEN(int n)
 	{
-		return getRandomTextEN(new java.util.Random(), n);
+		return getRandomTextEN(new Random(), n);
 	}
 	
-	public static String getRandomTextEN(java.util.Random r, int n)
+	public static String getRandomTextEN(Random r, int n)
 	{
 		return getRandomText(r, n, "abcdefghijklmnopqrstuwxvyz");
 	}	
 	
 	public static String getRandomTextTR(int n)
 	{
-		return getRandomTextTR(new java.util.Random(), n);
+		return getRandomTextTR(new Random(), n);
 	}	
 	
-	public static String getRandomTextTR(java.util.Random r, int n)
+	public static String getRandomTextTR(Random r, int n)
 	{
 		return getRandomText(r, n, "abcçdefgğhıijklmnoöprsştuüvyz");
 	}	
@@ -112,9 +114,9 @@ public class StringUtil {
 	{
 		int left = 0;
 		int right = s.length() - 1;		
+		boolean cLeftSelected = false, cRightSelected = false;
 		
-		while (left < right) {
-			boolean cLeftSelected = false, cRightSelected = false;
+		while (left < right) {			
 			char cLeft = '\0', cRight;
 			
 			if (!cLeftSelected) {
@@ -143,6 +145,8 @@ public class StringUtil {
 			
 			++left;
 			--right;			
+			
+			cLeftSelected = cRightSelected = false;			
 		}
 		
 		return true;
