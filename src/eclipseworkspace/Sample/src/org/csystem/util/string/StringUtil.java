@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 04.02.2023
+	LAST UPDATE	: 05.02.2023
 
 	Utility class for string operations
 
@@ -10,10 +10,9 @@
 ----------------------------------------------------------------*/
 package org.csystem.util.string;
 
-import java.util.*;
+import java.util.Random;
 
 public class StringUtil {	
-	
 	public static String capitalize(String s)
 	{
 		return s.isEmpty() ? "" : Character.toUpperCase(s.charAt(0)) + s.substring(1).toLowerCase();
@@ -113,12 +112,11 @@ public class StringUtil {
 	public static boolean isPalindrome(String s)
 	{
 		int left = 0;
-		int right = s.length() - 1;		
+		int right = s.length() - 1;
 		boolean cLeftSelected = false, cRightSelected = false;
+		char cLeft = '\0', cRight;
 		
 		while (left < right) {			
-			char cLeft = '\0', cRight;
-			
 			if (!cLeftSelected) {
 				cLeft = Character.toLowerCase(s.charAt(left));
 				
@@ -146,7 +144,7 @@ public class StringUtil {
 			++left;
 			--right;			
 			
-			cLeftSelected = cRightSelected = false;			
+			cLeftSelected = cRightSelected = false;
 		}
 		
 		return true;

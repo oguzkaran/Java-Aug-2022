@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: NumberUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 04.02.2023
+	LAST UPDATE	: 05.02.2023
 
 	Utility class for numeric operations
 
@@ -10,6 +10,10 @@
 ----------------------------------------------------------------*/
 package org.csystem.util.numeric;
 
+import static java.lang.Math.abs;
+import static java.lang.Math.log10;
+import static java.lang.Math.pow;
+
 public class NumberUtil {	
 	public static int getDigitsPowSum(int val)
 	{
@@ -17,7 +21,7 @@ public class NumberUtil {
 		int total = 0;
 			
 		while (val != 0) {
-			total += Math.pow(val % 10, n);
+			total += pow(val % 10, n);
 			val /= 10;
 		}		
 			
@@ -26,7 +30,7 @@ public class NumberUtil {
 	
 	public static int countDigits(int val)
 	{			
-		return (val != 0) ? ((int)Math.log10(Math.abs(val)) + 1) : 1;				
+		return (val != 0) ? ((int)log10(abs(val)) + 1) : 1;				
 	}
 	
 	public static long factorial(int n)
@@ -170,6 +174,6 @@ public class NumberUtil {
 			val /= 10;
 		}
 		
-		return Math.abs(sum);
+		return abs(sum);
 	}
 }
