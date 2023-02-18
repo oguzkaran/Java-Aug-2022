@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Sınıf Çalışması: Parametresi ile aldığı int türden bir dizinin elemanlarının toplamına geri dönen sum isimli
-	metodu ArrayUtil sınıfı içerisinde yazınız ve aşağıdaki kod ile test ediniz
+	Sınıf Çalışması: Parametresi ile aldığı int türden bir dizinin elemanlarını ters yüz eden reverse isimli metodu başka
+	bir dizi kullanmadan ArrayUtil sınıfı içerisinde yazınız ve aşağıdaki kod ile test ediniz
 -----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
