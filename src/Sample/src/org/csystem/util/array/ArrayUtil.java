@@ -44,6 +44,11 @@ public class ArrayUtil {
         return a;
     }
 
+    public static int [] join(int [] a, int [] b)
+    {
+        //TODO:
+    }
+
     public static void print(int [] a)
     {
         print(1, a);

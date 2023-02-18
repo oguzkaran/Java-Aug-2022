@@ -27,10 +27,10 @@ public class NumberUtil {
 			
 		return total;		
 	}
-	
-	public static int countDigits(int val)
-	{			
-		return (val != 0) ? ((int)log10(abs(val)) + 1) : 1;				
+
+	public static int countDigits(long val)
+	{
+		return (val != 0) ? ((int)log10(abs(val)) + 1) : 1;
 	}
 	
 	public static long factorial(int n)
@@ -45,7 +45,13 @@ public class NumberUtil {
 
 	public static int [] getDigits(long val)
 	{
-		//TODO:
+		int [] digits = new int[countDigits(val)];
+		val = Math.abs(val);
+
+		for (int i = digits.length - 1; i >= 0; digits[i] = (int)(val % 10), val /= 10, --i)
+			;
+
+		return digits;
 	}
 	
 	public static int getFibonacciNumber(int n)
