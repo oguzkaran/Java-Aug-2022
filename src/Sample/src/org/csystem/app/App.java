@@ -1,32 +1,23 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Bir dizi yaratıldığında tüm elemanlarına default değerler atanır
+	Aşağıdaki örneği inceleyiniz
 -----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
 import java.util.Random;
 import java.util.Scanner;
 
+import static org.csystem.util.array.ArrayUtil.getRandomArray;
+import static org.csystem.util.array.ArrayUtil.print;
+
 class App {
-	public static void main(String [] args) 
+	public static void main(String [] args)
 	{
+		Random random = new Random();
 		Scanner kb = new Scanner(System.in);
-		Random r = new Random();
 
 		System.out.print("Bir sayı giriniz:");
-		int count = kb.nextInt();
+		double [] a = getRandomArray(random, kb.nextInt(), 2.345, 9.789);
 
-		int [] a = new int[count];
-		boolean [] b = new boolean[count];
-
-		for (int i = 0; i < count; ++i)
-			System.out.printf("%d ", a[i]);
-
-		System.out.println();
-
-		for (int i = 0; i < count; ++i)
-			System.out.printf("%b ", b[i]);
-
-		System.out.println();
+		print(a);
 	}
 }
-
