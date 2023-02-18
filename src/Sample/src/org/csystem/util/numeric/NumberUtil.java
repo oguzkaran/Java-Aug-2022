@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: NumberUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 05.02.2023
+	LAST UPDATE	: 18.02.2023
 
 	Utility class for numeric operations
 
@@ -41,7 +41,12 @@ public class NumberUtil {
 			result *= i;		
 		
 		return result;
-	}	
+	}
+
+	public static int [] getDigits(long val)
+	{
+		//TODO:
+	}
 	
 	public static int getFibonacciNumber(int n)
 	{

@@ -75,15 +75,8 @@ public class ArrayUtil {
 
     public static void reverse(int [] a)
     {
-        //TODO:
-    }
-
-    public static void swap(double [] a, int i, int k)
-    {
-        double temp = a[i];
-
-        a[i] = a[k];
-        a[k] = temp;
+        for (int i = 0; i < a.length / 2; ++i)
+            swap(a, i, a.length - 1 - i);
     }
 
     public static int sum(int [] a)
@@ -94,5 +87,13 @@ public class ArrayUtil {
             total += a[i];
 
         return total;
+    }
+
+    public static void swap(double [] a, int i, int k)
+    {
+        double temp = a[i];
+
+        a[i] = a[k];
+        a[k] = temp;
     }
 }
