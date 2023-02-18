@@ -83,6 +83,11 @@ public class ArrayUtil {
 
     public static int sum(int [] a)
     {
-        //TODO:
+        int total = 0;
+
+        for (int i = 0; i < a.length; ++i)
+            total += a[i];
+
+        return total;
     }
 }
