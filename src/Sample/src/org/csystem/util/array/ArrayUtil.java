@@ -80,4 +80,9 @@ public class ArrayUtil {
         a[i] = a[k];
         a[k] = temp;
     }
+
+    public static int sum(int [] a)
+    {
+        //TODO:
+    }
 }
