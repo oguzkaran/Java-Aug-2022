@@ -15,15 +15,15 @@ public class JoinArraysTest {
             int count1 = kb.nextInt();
             int count2 = kb.nextInt();
 
-            if (count1 <= 0 || count2 <= 0)
+            if (count1 <= 0 && count2 <= 0)
                 break;
 
             int [] a  = getRandomArray(r, count1, 0, 100);
             int [] b  = getRandomArray(r, count2, 0, 100);
 
-            print(a);
-            print(b);
-            print(join(a, b));
+            print(2, a);
+            print(2, b);
+            print(2, join(a, b));
         }
 
         System.out.println("Tekrar yapıyor musunuz?");

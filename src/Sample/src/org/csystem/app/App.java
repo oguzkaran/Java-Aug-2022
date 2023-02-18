@@ -1,6 +1,13 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Sınıf Çalışması: Parametresi ile aldığı long türden bir sayının basamaklarından oluşan diziyi döndüren getDigits
-	isimli metodu NumberUtil sınıfı içerisinde yazınız ve aşağıdaki kod ile test ediniz
+	Dizilerin sıraya dizilmesi (sorting):
+	Dizilerin sıraya dizilmesine yönelik pek çok algoritma bulunmaktadır.  Sıralama işleminin küçükten büyüğe yani artan
+	sırada (ascending order) yapılmasına doğal sıralama (natural sort order) denir. Biz burada "kabarcık sıralama (bubble sort)" ve
+	"seçerek sıralama (selection sort) algoritmalarını kodlayacağız. Algoritmalar doğal sıralama şeklinde anlatılacaktır.
+	Ancak her iki sıralama da (ascending ve descending) kodlanacaktır
+
+	Anahtar Notlar: Algoritmaların karşılaştırılmasına yönelik iki ölçüt vardır: hız (speed), kaynak kullanımı (resource usage).
+	Burada baskın ölçüt hızdır. Burada kabarcık sıralama ve seçerek sıralama algoritmaları karşılaştırılmayacaktır.
+	"Algoritma Analizi" isimli konuda bu ikiş algoritmanın karşılaştırılması yapılacaktır
 -----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
