@@ -12,6 +12,8 @@ package org.csystem.util.array;
 
 import java.util.Random;
 
+import static java.lang.Math.*;
+
 public class ArrayUtil {
     public static void bubbleSortAscending(int [] a)
     {
@@ -78,6 +80,20 @@ public class ArrayUtil {
             bubbleSortAscending(a);
     }
 
+    public static void drawHistogram(int [] data, int count, char ch)
+    {
+        int maxVal = max(data);
+
+        for (int i = 0; i < data.length; ++i) {
+            int charCount = (int)floor(data[i] * count / (double)maxVal);
+
+            while (charCount-- > 0)
+                System.out.print(ch);
+
+            System.out.println();
+        }
+    }
+
     public static void fillRandomArray(Random random, int [] a, int min, int bound)
     {
         for (int i = 0; i < a.length; ++i)
@@ -88,6 +104,16 @@ public class ArrayUtil {
     {
         for (int i = 0; i < a.length; ++i)
             a[i] = random.nextDouble(min, bound);
+    }
+
+    public static int [] getHistogramData(int [] a, int n)
+    {
+        int [] counts = new int[n + 1];
+
+        for (int i = 0; i < a.length; ++i)
+            ++counts[a[i]];
+
+        return counts;
     }
 
     public static int [] getRandomArray(Random random, int count, int min, int bound)
@@ -157,6 +183,23 @@ public class ArrayUtil {
             System.out.printf(fmt, a[i]);
 
         System.out.println();
+    }
+
+    public static int partition(int [] a, int threshold)
+    {
+        int partitionIndex = 0;
+
+        while (partitionIndex != a.length && a[partitionIndex] < threshold)
+            ++partitionIndex;
+
+        if (partitionIndex == a.length)
+            return partitionIndex;
+
+        for (int i = partitionIndex + 1; i < a.length; ++i)
+            if (a[i] < threshold)
+                swap(a, i, partitionIndex++);
+
+        return partitionIndex;
     }
 
     public static void print(double [] a)
