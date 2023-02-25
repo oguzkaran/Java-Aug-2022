@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 05.02.2023
+	LAST UPDATE	: 25.02.2023
 
 	Utility class for string operations
 
@@ -9,6 +9,8 @@
 	All Rights Free
 ----------------------------------------------------------------*/
 package org.csystem.util.string;
+
+import org.csystem.util.array.ArrayUtil;
 
 import java.util.Random;
 
@@ -35,14 +37,13 @@ public class StringUtil {
 	
 	public static String getRandomText(Random r, int n, String sourceText)
 	{
-		String str = "";
-		
+		char [] c = new char[n];
 		int len = sourceText.length();
 		
 		for (int i = 0; i < n; ++i)
-			str += sourceText.charAt(r.nextInt(len));			
+			c[i] = sourceText.charAt(r.nextInt(len));
 		
-		return str;
+		return String.valueOf(c);
 	}	
 	
 	public static String getRandomTextEN(int n)
@@ -63,8 +64,28 @@ public class StringUtil {
 	public static String getRandomTextTR(Random r, int n)
 	{
 		return getRandomText(r, n, "abcçdefgğhıijklmnoöprsştuüvyz");
-	}	
-	
+	}
+
+	public static String [] getRandomTextsTR(Random r, int count, int mim, int bound)
+	{
+		//TODO:
+	}
+
+	public static String [] getRandomTextsTR(Random r, int count, int n)
+	{
+		//TODO:
+	}
+
+	public static String [] getRandomTextsEN(Random r, int count, int mim, int bound)
+	{
+		//TODO:
+	}
+	public static String [] getRandomTextsEN(Random r, int count, int n)
+	{
+		//TODO:
+	}
+
+
 	public static String getShortestPangramEN(String s)
 	{
 		String result = s;
@@ -202,12 +223,10 @@ public class StringUtil {
 	
 	public static String reverse(String s)
 	{
-		String str = "";
-		
-		for (int i = s.length() - 1; i >= 0; --i)
-			str += s.charAt(i);
-		
-		return str;
+		char [] c = s.toCharArray();
+
+		ArrayUtil.reverse(c);
+		return String.valueOf(c);
 	}		
 	
 	public static String trimLeading(String s)
@@ -223,9 +242,8 @@ public class StringUtil {
 	
 	public static String trimTrailing(String s)
 	{
-		int i;	
-		
-		
+		int i;
+
 		for (i = s.length() - 1; i >= 0 && Character.isWhitespace(s.charAt(i)); --i)
 			;
 		

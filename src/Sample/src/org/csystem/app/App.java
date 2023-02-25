@@ -1,14 +1,29 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	ArrayUtil sınıfının drawHistogram metodu. Homework-011'de merkezi limi teoremi için önce bu metodu kullanınız. Daha
-	sonra metodu çalışma sorusunda istendiği şekilde yazınız. Ya da önce drawHistogram metodunu çalışma sorusunda istendiği
-	gibi yazıp aşağıdaki kod ile test ediniz ve daha sonra merkezi limit teoremi için olan kısmı yazınız
+	Sınıf Çalışması: Aşağıdaki açıklanan metotları StringUtil sınıfı içerisinde yazınız.
+	Açıklamalar:
+		- Metotların prototipleri aşağıdakşi gbidir:
+		public static String [] getRandomTextsTR(Random r, int count, int mim, int bound)
+		public static String [] getRandomTextsTR(Random r, int count, int n)
+
+		public static String [] getRandomTextsEN(Random r, int count, int mim, int bound)
+		public static String [] getRandomTextsEN(Random r, int count, int n)
+
+		Birinci metot, ikinci parametresi ile aldığı count kadar elemanlı ve her bir elemanı [min, bound) aralığında rasgele
+		belirlenmiş Türkçe karakterden oluşan yazıları içeren bir String dizisine geri dönecektir. İkinci metot, ikinci
+		parametresi ile aldığı count kadar elemanlı ve her bir elemanı üçüncü parametresi ile aldığı n değeri kadar rasgele
+		belirlenmiş Türkçe karakterlerden oluşan yazıları içeren String dizisine geri dönecektir. Son iki metot İngilizce
+		karakterlerden oluşan String dizisine geri dönen versiyonlarıdır.
+
+		- Metotlar için yazılmış test kodlarını çalıştırınız
 -----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
+
+import org.csystem.app.date.DateApp;
 
 class App {
 	public static void main(String [] args)
 	{
-
+		DateApp.run();
 	}
 }
 

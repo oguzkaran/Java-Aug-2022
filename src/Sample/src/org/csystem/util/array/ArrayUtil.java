@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: ArrayUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 19.02.2023
+	LAST UPDATE	: 25.02.2023
 
 	Utility class for array operations
 
@@ -208,18 +208,28 @@ public class ArrayUtil {
             System.out.printf("%f%n", a[i]);
     }
 
-    public static void swap(int [] a, int i, int k)
+    public static void print(String [] s)
     {
-        int temp = a[i];
-
-        a[i] = a[k];
-        a[k] = temp;
+        for (int i = 0; i < s.length; ++i)
+            System.out.println(s[i]);
     }
 
     public static void reverse(int [] a)
     {
         for (int i = 0; i < a.length / 2; ++i)
             swap(a, i, a.length - 1 - i);
+    }
+
+    public static void reverse(double [] a)
+    {
+        for (int i = 0; i < a.length / 2; ++i)
+            swap(a, i, a.length - 1 - i);
+    }
+
+    public static void reverse(char [] chars)
+    {
+        for (int i = 0; i < chars.length / 2; ++i)
+            swap(chars, i, chars.length - 1 - i);
     }
 
     public static void selectionSort(int [] a)
@@ -245,9 +255,25 @@ public class ArrayUtil {
         return total;
     }
 
+    public static void swap(int [] a, int i, int k)
+    {
+        int temp = a[i];
+
+        a[i] = a[k];
+        a[k] = temp;
+    }
+
     public static void swap(double [] a, int i, int k)
     {
         double temp = a[i];
+
+        a[i] = a[k];
+        a[k] = temp;
+    }
+
+    public static void swap(char [] a, int i, int k)
+    {
+        char temp = a[i];
 
         a[i] = a[k];
         a[k] = temp;
