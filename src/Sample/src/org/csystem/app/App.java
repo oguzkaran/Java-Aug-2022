@@ -1,20 +1,10 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Sınıf Çalışması: Aşağıdaki açıklanan metotları StringUtil sınıfı içerisinde yazınız.
-	Açıklamalar:
-		- Metotların prototipleri aşağıdakşi gbidir:
-		public static String [] getRandomTextsTR(Random r, int count, int mim, int bound)
-		public static String [] getRandomTextsTR(Random r, int count, int n)
-
-		public static String [] getRandomTextsEN(Random r, int count, int mim, int bound)
-		public static String [] getRandomTextsEN(Random r, int count, int n)
-
-		Birinci metot, ikinci parametresi ile aldığı count kadar elemanlı ve her bir elemanı [min, bound) aralığında rasgele
-		belirlenmiş Türkçe karakterden oluşan yazıları içeren bir String dizisine geri dönecektir. İkinci metot, ikinci
-		parametresi ile aldığı count kadar elemanlı ve her bir elemanı üçüncü parametresi ile aldığı n değeri kadar rasgele
-		belirlenmiş Türkçe karakterlerden oluşan yazıları içeren String dizisine geri dönecektir. Son iki metot İngilizce
-		karakterlerden oluşan String dizisine geri dönen versiyonlarıdır.
-
-		- Metotlar için yazılmış test kodlarını çalıştırınız
+	Sınıf Çalışması: Parametresi ile aldığı long türden bir sayının en fazla 3 basamaklı ayrılmış sayılarından oluşan diziyi
+	döndüren getDigitsInThrees metodunu NUmberUtil sınıfı içerisinde yazınız ve aşağıdaki kod ile test ediniz
+	Örnekler:
+	1234567 -> 1 234 567
+	5678 -> 5 678
+	123 -> 123
 -----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 

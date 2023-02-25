@@ -12,9 +12,10 @@ class GetRandomTextsTRTest {
 		Scanner kb = new Scanner(System.in);
 		Random r = new Random();
 
-		System.out.print("min and bound değerlerini giriniz:");
-		int min = kb.nextInt();
-		int bound = kb.nextInt();
+		System.out.print("min değerini giriniz:");
+		int min = Integer.parseInt(kb.nextLine());
+		System.out.print("bound değerini giriniz:");
+		int bound = Integer.parseInt(kb.nextLine());
 		
 		for (;;) {
 			System.out.print("Bir sayı giriniz:");
@@ -23,11 +24,10 @@ class GetRandomTextsTRTest {
 			if (count < 1)
 				break;
 
-			print(getRandomTextsTR(r, count, min, bound));
 			int n = r.nextInt(min, bound);
 
-			System.out.printf("n = %d%n", n);
 			print(getRandomTextsTR(r, count, min, bound));
+			System.out.printf("n = %d%n", n);
 			print(getRandomTextsTR(r, count, n));
 		}
 	}

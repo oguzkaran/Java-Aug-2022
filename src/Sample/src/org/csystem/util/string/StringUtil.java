@@ -14,7 +14,14 @@ import org.csystem.util.array.ArrayUtil;
 
 import java.util.Random;
 
-public class StringUtil {	
+public class StringUtil {
+	public static String alphabetTR = "abcçdefgğhıijklmnoöprsştuüvyz";
+	public static String alphabetEN = "abcdefghijklmnopqrstuwvxyz";
+	public static String alphabetCapitalTR = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ";
+	public static String alphabetCapitalEN = "ABCDEFGHIJKLMNOPQRSTUWVXYZ";
+	public static String alphabetAllTR = alphabetTR + alphabetCapitalTR;
+	public static String alphabetAllEN = alphabetEN + alphabetCapitalEN;
+
 	public static String capitalize(String s)
 	{
 		return s.isEmpty() ? "" : Character.toUpperCase(s.charAt(0)) + s.substring(1).toLowerCase();
@@ -44,7 +51,27 @@ public class StringUtil {
 			c[i] = sourceText.charAt(r.nextInt(len));
 		
 		return String.valueOf(c);
-	}	
+	}
+
+	public static String [] getRandomTexts(Random r, int count, int min, int bound, String sourceText)
+	{
+		String [] texts = new String[count];
+
+		for (int i = 0; i < count; ++i)
+			texts[i] = getRandomText(r, r.nextInt(min, bound), sourceText);
+
+		return texts;
+	}
+
+	public static String [] getRandomTexts(Random r, int count, int n, String sourceText)
+	{
+		String [] texts = new String[count];
+
+		for (int i = 0; i < count; ++i)
+			texts[i] = getRandomText(r, n, sourceText);
+
+		return texts;
+	}
 	
 	public static String getRandomTextEN(int n)
 	{
@@ -53,7 +80,7 @@ public class StringUtil {
 	
 	public static String getRandomTextEN(Random r, int n)
 	{
-		return getRandomText(r, n, "abcdefghijklmnopqrstuwxvyz");
+		return getRandomText(r, n, alphabetAllEN);
 	}	
 	
 	public static String getRandomTextTR(int n)
@@ -63,28 +90,28 @@ public class StringUtil {
 	
 	public static String getRandomTextTR(Random r, int n)
 	{
-		return getRandomText(r, n, "abcçdefgğhıijklmnoöprsştuüvyz");
+		return getRandomText(r, n, alphabetAllTR);
 	}
 
-	public static String [] getRandomTextsTR(Random r, int count, int mim, int bound)
+	public static String [] getRandomTextsTR(Random r, int count, int min, int bound)
 	{
-		//TODO:
+		return getRandomTexts(r, count, min, bound, alphabetAllTR);
 	}
 
 	public static String [] getRandomTextsTR(Random r, int count, int n)
 	{
-		//TODO:
+		return getRandomTexts(r, count, n, alphabetAllTR);
 	}
 
-	public static String [] getRandomTextsEN(Random r, int count, int mim, int bound)
+	public static String [] getRandomTextsEN(Random r, int count, int min, int bound)
 	{
-		//TODO:
+		return getRandomTexts(r, count, min, bound, alphabetAllEN);
 	}
+
 	public static String [] getRandomTextsEN(Random r, int count, int n)
 	{
-		//TODO:
+		return getRandomTexts(r, count, n, alphabetAllTR);
 	}
-
 
 	public static String getShortestPangramEN(String s)
 	{

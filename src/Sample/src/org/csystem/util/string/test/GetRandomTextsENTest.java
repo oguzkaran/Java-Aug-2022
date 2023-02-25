@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import static org.csystem.util.array.ArrayUtil.print;
 import static org.csystem.util.string.StringUtil.getRandomTextsEN;
+import static org.csystem.util.string.StringUtil.getRandomTextsTR;
 
 class GetRandomTextsENTest {
 	public static void run()
@@ -12,9 +13,11 @@ class GetRandomTextsENTest {
 		Scanner kb = new Scanner(System.in);
 		Random r = new Random();
 
-		System.out.print("Input min and bound values:");
-		int min = kb.nextInt();
-		int bound = kb.nextInt();
+		System.out.print("Input min value:");
+		int min = Integer.parseInt(kb.nextLine());
+
+		System.out.print("Input bound value:");
+		int bound = Integer.parseInt(kb.nextLine());
 		
 		for (;;) {
 			System.out.print("Input count:");
@@ -23,11 +26,10 @@ class GetRandomTextsENTest {
 			if (count < 1)
 				break;
 
-			print(getRandomTextsEN(r, count, min, bound));
 			int n = r.nextInt(min, bound);
 
-			System.out.printf("n = %d%n", n);
 			print(getRandomTextsEN(r, count, min, bound));
+			System.out.printf("n = %d%n", n);
 			print(getRandomTextsEN(r, count, n));
 		}
 	}
