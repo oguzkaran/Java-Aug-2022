@@ -25,7 +25,20 @@ public class StringUtil {
 	public static String capitalize(String s)
 	{
 		return s.isEmpty() ? "" : Character.toUpperCase(s.charAt(0)) + s.substring(1).toLowerCase();
-	}	
+	}
+
+	public static String changeCase(String s)
+	{
+		char [] chars = new char[s.length()];
+
+		for (int i = 0; i < chars.length; ++i) {
+			char c = s.charAt(i);
+
+			chars[i] = Character.isUpperCase(c) ? Character.toLowerCase(c) : Character.toUpperCase(c);
+		}
+
+		return String.valueOf(chars);
+	}
 	
 	public static int countString(String s1, String s2)
 	{
@@ -186,7 +199,24 @@ public class StringUtil {
 		}
 		
 		return result;
-	}			
+	}
+
+	public static boolean isIdentifier(String s)
+	{
+		if (s.isBlank() || s.equals("_"))
+			return false;
+
+		if (!Character.isJavaIdentifierStart(s.charAt(0)))
+			return false;
+
+		int len = s.length();
+
+		for (int i = 1; i < len; ++i)
+			if (!Character.isJavaIdentifierPart(s.charAt(i)))
+				return false;
+
+		return true;
+	}
 	
 	public static boolean isPalindrome(String s)
 	{
@@ -300,7 +330,22 @@ public class StringUtil {
 
 		ArrayUtil.reverse(c);
 		return String.valueOf(c);
-	}		
+	}
+
+	public static String squeeze(String s1, String s2)
+	{
+		String str = "";
+		int len = s1.length();
+
+		for (int i = 0; i < len; ++i) {
+			char c = s1.charAt(i);
+
+			if (!s2.contains(c + ""))
+				str += c;
+		}
+
+		return str;
+	}
 	
 	public static String trimLeading(String s)
 	{
@@ -321,6 +366,46 @@ public class StringUtil {
 			;
 		
 		return s.substring(0, i + 1);
+	}
+
+	public static String wrapWith(String s, char prefix, char suffix)
+	{
+		return wrapWith(s, prefix + "", suffix + "");
+	}
+
+	public static String wrapWith(String s, String prefix, String suffix)
+	{
+		return String.format("%s%s%s", prefix, s, suffix);
+	}
+
+	public static String wrapWithStrip(String s, char prefix, char suffix)
+	{
+		return wrapWithStrip(s, prefix + "", suffix + "");
+	}
+
+	public static String wrapWithStrip(String s, String prefix, String suffix)
+	{
+		return wrapWith(s.strip(), prefix, suffix);
+	}
+
+	public static String wrapWithBracesStrip(String s)
+	{
+		return wrapWithStrip(s, '(', ')');
+	}
+
+	public static String wrapWithBraces(String s)
+	{
+		return wrapWith(s, '(', ')');
+	}
+
+	public static String wrapWithBCurlyracesStrip(String s)
+	{
+		return wrapWithStrip(s, '{', '}');
+	}
+
+	public static String wrapWithCurlyBraces(String s)
+	{
+		return wrapWith(s, '{', '}');
 	}
 }
 
