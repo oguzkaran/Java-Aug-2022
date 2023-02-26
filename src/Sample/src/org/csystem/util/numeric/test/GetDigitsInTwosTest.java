@@ -5,8 +5,9 @@ import java.util.Scanner;
 
 import static org.csystem.util.array.ArrayUtil.print;
 import static org.csystem.util.numeric.NumberUtil.getDigitsInThrees;
+import static org.csystem.util.numeric.NumberUtil.getDigitsInTwos;
 
-public class GetDigitsInThreesTest {
+public class GetDigitsInTwosTest {
     public static void run()
     {
         Scanner kb = new Scanner(System.in);
@@ -18,11 +19,10 @@ public class GetDigitsInThreesTest {
         while (n-- > 0) {
             long val = r.nextLong();
             System.out.printf("%d -> ", val);
-            print(getDigitsInThrees(val));
+            print(getDigitsInTwos(val));
         }
 
         System.out.println("Tekrar yapıyor musunuz?");
-
     }
 
     public static void main(String [] args)

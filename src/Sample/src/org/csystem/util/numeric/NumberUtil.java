@@ -14,7 +14,21 @@ import static java.lang.Math.abs;
 import static java.lang.Math.log10;
 import static java.lang.Math.pow;
 
-public class NumberUtil {	
+public class NumberUtil {
+	public static String [] onesTR = {"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"};
+	public static String [] tensTR = {"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"};
+
+	public static int [] getDigits(long val, int n)
+	{
+		int [] values = new int[val == 0 ? 1 : (int)(log10((val = abs(val))) / n) + 1];
+		int powOfTen = (int)pow(10, n);
+
+		for (int i = values.length - 1; i >= 0; values[i] = (int)(val % powOfTen), val /= powOfTen, --i)
+			;
+
+		return values;
+	}
+
 	public static int getDigitsPowSum(int val)
 	{
 		int n = countDigits(val);
@@ -45,19 +59,19 @@ public class NumberUtil {
 
 	public static int [] getDigits(long val)
 	{
-		int [] digits = new int[countDigits(val)];
-		val = Math.abs(val);
-
-		for (int i = digits.length - 1; i >= 0; digits[i] = (int)(val % 10), val /= 10, --i)
-			;
-
-		return digits;
+		return getDigits(val, 1);
 	}
+
+	public static int [] getDigitsInTwos(long val)
+	{
+		return getDigits(val, 2);
+	}
+
 	public static int [] getDigitsInThrees(long val)
 	{
-		//TODO:
+		return getDigits(val, 3);
 	}
-	
+
 	public static int getFibonacciNumber(int n)
 	{
 		if (n <= 2)
@@ -166,7 +180,35 @@ public class NumberUtil {
 	public static double min(double a, double b, double c)
 	{
 		return Math.min(Math.min(a, b), c);
-	}	
+	}
+
+	public static String numToTextTR(long val)
+	{
+		if (val == 0)
+			return "sıfır";
+
+		String text = val < 0 ? "eksi" : "";
+
+		val = abs(val);
+
+		int a = (int)(val / 100);
+		int b = (int)(val / 10 % 10);
+		int c = (int)(val % 10);
+
+		if (a != 0) {
+			if (a != 1)
+				text += onesTR[a];
+			text += "yüz";
+		}
+
+		if (b != 0)
+			text += tensTR[b];
+
+		if (c != 0)
+			text += onesTR[c];
+
+		return text;
+	}
 		
 	public static int reverse(int val)
 	{

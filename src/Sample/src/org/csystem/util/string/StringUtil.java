@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 25.02.2023
+	LAST UPDATE	: 26.02.2023
 
 	Utility class for string operations
 
@@ -40,8 +40,41 @@ public class StringUtil {
 	public static int countStringIgnoreCase(String s1, String s2)
 	{
 		return countString(s1.toLowerCase(), s2.toLowerCase());
-	}		
-	
+	}
+
+
+	public static void fillRandomTexts(Random r, String [] texts, int n, String sourceText)
+	{
+		for (int i = 0; i < texts.length; ++i)
+			texts[i] = getRandomText(r, n, sourceText);
+	}
+
+	public static void fillRandomTexts(Random r, String [] texts, int min, int bound, String sourceText)
+	{
+		for (int i = 0; i < texts.length; ++i)
+			texts[i] = getRandomText(r, r.nextInt(min, bound), sourceText);
+	}
+
+	public static void fillRandomTextsTR(Random r, String [] texts, int n)
+	{
+		fillRandomTexts(r, texts, n, alphabetAllTR);
+	}
+
+	public static void fillRandomTextsTR(Random r, String [] texts, int min, int bound)
+	{
+		fillRandomTexts(r, texts, min, bound, alphabetAllTR);
+	}
+
+	public static void fillRandomTextsEN(Random r, String [] texts, int n)
+	{
+		fillRandomTexts(r, texts, n, alphabetAllEN);
+	}
+
+	public static void fillRandomTextsEN(Random r, String [] texts, int min, int bound)
+	{
+		fillRandomTexts(r, texts, min, bound, alphabetAllEN);
+	}
+
 	public static String getRandomText(Random r, int n, String sourceText)
 	{
 		char [] c = new char[n];
@@ -57,8 +90,7 @@ public class StringUtil {
 	{
 		String [] texts = new String[count];
 
-		for (int i = 0; i < count; ++i)
-			texts[i] = getRandomText(r, r.nextInt(min, bound), sourceText);
+		fillRandomTexts(r, texts, min, bound, sourceText);
 
 		return texts;
 	}
@@ -67,8 +99,7 @@ public class StringUtil {
 	{
 		String [] texts = new String[count];
 
-		for (int i = 0; i < count; ++i)
-			texts[i] = getRandomText(r, n, sourceText);
+		fillRandomTexts(r, texts, n, sourceText);
 
 		return texts;
 	}
@@ -110,7 +141,7 @@ public class StringUtil {
 
 	public static String [] getRandomTextsEN(Random r, int count, int n)
 	{
-		return getRandomTexts(r, count, n, alphabetAllTR);
+		return getRandomTexts(r, count, n, alphabetAllEN);
 	}
 
 	public static String getShortestPangramEN(String s)
@@ -217,7 +248,22 @@ public class StringUtil {
 	public static boolean isPangramTR(String s)
 	{
 		return isPangram(s.toLowerCase(), "abcçdefgğhıijklmnoöprsştuüvyz");
-	}	
+	}
+
+	public static String join(String [] s, char delimiter)
+	{
+		return join(s, delimiter + "");
+	}
+
+	public static String join(String [] s, String delimiter)
+	{
+		String result = "";
+
+		for (int i = 0; i < s.length; ++i)
+			result += s[i] + delimiter;
+
+		return result.substring(0, result.length() - delimiter.length());
+	}
 	
 	public static String padLeading(String s, int len, char ch)
 	{
