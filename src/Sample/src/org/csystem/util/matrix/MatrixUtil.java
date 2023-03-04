@@ -32,11 +32,29 @@ public class MatrixUtil {
 
     public static boolean isMatrix(int [][] a)
     {
-        //TODO:
+        for (int i = 1; i < a.length; ++i)
+            if (a[0].length != a[i].length)
+                return false;
+
+        return true;
     }
 
     public static boolean isSquareMatrix(int [][] a)
     {
+        return isMatrix(a) && a.length == a[0].length;
+    }
+
+    public static long sumDiagonal(int [][] a)
+    {
         //TODO:
+    }
+
+    public static int [][] transpose(int [][] a)
+    {
+        int [][] t = new int[a[0].length][a.length];
+
+        //TODO:
+
+        return t;
     }
 }

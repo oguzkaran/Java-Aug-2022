@@ -1,28 +1,22 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Sınıf Çalışması: Parametresi ile aldığı int türden bir dizi dizisinin bir matris olup olmadığını test eden isMatrix
-	ve kare matris olup olmadığını test eden isSquareMatrix metotlarını MatrixUtil isimli sınıf içerisinde yazınız ve aşağıdaki
-	kodlar ile test ediniz
+	Sınıf Çalışması: Parametresi ile aldığı int türden bir kare matrisin esas köşegeni (diagonal) üzerindeki sayıların
+	toplamına geri dönen sumDiagonal isimli metodu MatrixUtil sınıfı içerisinde yazınız ve aşağıdaki kod ile test ediniz
+	Açıklamalar:
+		- Metot kare matris kontrolü yapmayacaktır
+		- Bir kare matrisin esas köşegeni üzerinde sayılar, örneğin:
+		1 2 3
+		4 5 6
+		7 8 9
+
+	matrisi için 1, 5 ve 9 sayılarıdır
 -----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
-import org.csystem.util.array.ArrayUtil;
-import org.csystem.util.matrix.MatrixUtil;
-
-import java.util.Random;
-import java.util.Scanner;
+import org.csystem.app.lottery.NumericLotteryApp;
 
 class App {
 	public static void main(String [] args)
 	{
-		Scanner kb = new Scanner(System.in);
-		Random r = new Random();
-
-		System.out.print("Matrisin satır ve sutün sayısını giriniz:");
-		int m = kb.nextInt();
-		int n = kb.nextInt();
-
-		int [][] a = MatrixUtil.getRandomMatrix(r, m, n, 0, 99);
-
-		ArrayUtil.print(2, a);
+		NumericLotteryApp.run();
 	}
 }

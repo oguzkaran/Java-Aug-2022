@@ -50,4 +50,14 @@ public class NumericLottery {
     {
         return getNumbers(getFlags());
     }
+
+    public int [][] getNumbers(int count)
+    {
+        int [][] numbers = new int[count][];
+
+        for (int i = 0; i < count; ++i)
+            numbers[i] = getNumbers();
+
+        return numbers;
+    }
 }
