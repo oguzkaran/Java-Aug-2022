@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: ArrayUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 25.02.2023
+	LAST UPDATE	: 04.03.2023
 
 	Utility class for array operations
 
@@ -134,6 +134,8 @@ public class ArrayUtil {
         return a;
     }
 
+
+
     public static int [] join(int [] a, int [] b)
     {
         int [] result = new int[a.length + b.length];
@@ -170,20 +172,7 @@ public class ArrayUtil {
         return result;
     }
 
-    public static void print(int [] a)
-    {
-        print(1, a);
-    }
 
-    public static void print(int n, int [] a)
-    {
-        String fmt = String.format("%%0%dd ", n);
-
-        for (int i = 0; i < a.length; ++i)
-            System.out.printf(fmt, a[i]);
-
-        System.out.println();
-    }
 
     public static int partition(int [] a, int threshold)
     {
@@ -208,10 +197,37 @@ public class ArrayUtil {
             System.out.printf("%f%n", a[i]);
     }
 
+    public static void print(int [] a)
+    {
+        print(1, a);
+    }
+
+    public static void print(int n, int [] a)
+    {
+        String fmt = String.format("%%0%dd ", n);
+
+        for (int i = 0; i < a.length; ++i)
+            System.out.printf(fmt, a[i]);
+
+        System.out.println();
+    }
+
+
     public static void print(String [] s)
     {
         for (int i = 0; i < s.length; ++i)
             System.out.println(s[i]);
+    }
+
+    public static void print(int [][] a)
+    {
+        print(1, a);
+    }
+
+    public static void print(int n, int [][] a)
+    {
+        for (int i = 0; i < a.length; ++i)
+            print(n, a[i]);
     }
 
     public static void reverse(int [] a)
