@@ -35,7 +35,7 @@ public class DateUtil {
 
 		System.out.println(isWeekend(day, month, year) ? "Today is a course day. Did you review?" : "Course day is coming. Do not forget to review!...");
 	}
-	
+
 	public static void printDateByDayOfWeekTR(int day, int month, int year, int dayOfWeek)
 	{
 		System.out.printf("%d %s %04d %s%n", day, monthsTR[month], year, dayOfWeeksTR[dayOfWeek]);
@@ -44,6 +44,13 @@ public class DateUtil {
 	public static void printDateByDayOfWeekEN(int day, int month, int year, int dayOfWeek)
 	{
 		System.out.printf("%d%s %s %04d %s%n", day, getDaySuffix(day), monthsEN[month], year, dayOfWeeksEN[dayOfWeek]);
+	}
+
+	public static String getLongDateTR(int day, int month, int year)
+	{
+		int dayOfWeek = getDayOfWeek(day, month, year);
+
+		return String.format("%d %s %04d %s", day, monthsTR[month], year, dayOfWeeksTR[dayOfWeek]);
 	}
 	
 	public static int getDayOfWeek(int day, int month, int year)

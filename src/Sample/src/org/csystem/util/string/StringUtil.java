@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 26.02.2023
+	LAST UPDATE	: 04.03.2023
 
 	Utility class for string operations
 
@@ -330,6 +330,27 @@ public class StringUtil {
 
 		ArrayUtil.reverse(c);
 		return String.valueOf(c);
+	}
+
+	public static String [] split(String str, String delimiters)
+	{
+		return split(str, delimiters, false);
+	}
+
+	public static String [] split(String str, String delimiters, boolean removeEmptyEntries)
+	{
+		String pattern = "[";
+
+		int len = delimiters.length();
+
+		for (int i = 0; i < len; ++i) {
+			char c = delimiters.charAt(i);
+			pattern += (c == '[' || c == ']') ? ("\\" + c) : c;
+		}
+
+		pattern += "]" + (removeEmptyEntries ? "+" : "");
+
+		return str.split(pattern);
 	}
 
 	public static String squeeze(String s1, String s2)
