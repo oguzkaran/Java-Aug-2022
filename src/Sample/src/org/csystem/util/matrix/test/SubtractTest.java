@@ -4,10 +4,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 import static org.csystem.util.array.ArrayUtil.print;
-import static org.csystem.util.matrix.MatrixUtil.getRandomSquareMatrix;
-import static org.csystem.util.matrix.MatrixUtil.sumDiagonal;
+import static org.csystem.util.matrix.MatrixUtil.getRandomMatrix;
+import static org.csystem.util.matrix.MatrixUtil.subtract;
 
-class SumDiagonalTest {
+class SubtractTest {
 	public static void run()
 	{
 		Scanner kb = new Scanner(System.in);
@@ -17,10 +17,14 @@ class SumDiagonalTest {
 		int count = kb.nextInt();
 
 		for (int i = 0; i < count; ++i) {
-			int [][] a = getRandomSquareMatrix(r, r.nextInt(3, 6), 0, 99);
+			int [][] a = getRandomMatrix(r, r.nextInt(4, 10), r.nextInt(4, 10), 0, 99);
+			int [][] b = getRandomMatrix(r, r.nextInt(4, 10), r.nextInt(4, 10), 0, 99);
 			System.out.println("---------------------------------------------------");
 			print(2, a);
-			System.out.printf("Esas köşegen üzerindeki sayıların toplamı:%d%n", sumDiagonal(a));
+			System.out.println();
+			print(2, b);
+			System.out.println("Matrislerin farkı:");
+			print(3, subtract(a, b));
 			System.out.println("---------------------------------------------------");
 		}
 	}

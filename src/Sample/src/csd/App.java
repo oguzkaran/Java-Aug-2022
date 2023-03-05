@@ -1,6 +1,7 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Homework-008-6. sorunun bir çözümü
-	(Not: Çözüm çalışma sorusunun verildiği tarihte işlenmiş olan konulara göre yazılmıştır)
+	Sınıf Çalışması: Parametresi ile aldığı int türden bir matrisin tüm elemanlarını ikinci parametresi ile aldığı int
+	türden değer ile toplayan addBy, çıkartan subtractBy ve çarpan multiplyBy isimli metotları MatrixUtil isimli
+	sınıf içerisinde yazınız ve aşağıdaki kodlar ile test ediniz
 -----------------------------------------------------------------------------------------------------------------------*/
 package csd;
 
