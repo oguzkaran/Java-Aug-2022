@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: ArrayUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 04.03.2023
+	LAST UPDATE	: 05.03.2023
 
 	Utility class for array operations
 
@@ -84,8 +84,8 @@ public class ArrayUtil {
     {
         int maxVal = max(data);
 
-        for (int i = 0; i < data.length; ++i) {
-            int charCount = (int)floor(data[i] * count / (double)maxVal);
+        for (int val : data) {
+            int charCount = (int) floor(val * count / (double) maxVal);
 
             while (charCount-- > 0)
                 System.out.print(ch);
@@ -110,8 +110,8 @@ public class ArrayUtil {
     {
         int [] counts = new int[n + 1];
 
-        for (int i = 0; i < a.length; ++i)
-            ++counts[a[i]];
+        for (int val : a)
+            ++counts[val];
 
         return counts;
     }
@@ -134,18 +134,16 @@ public class ArrayUtil {
         return a;
     }
 
-
-
     public static int [] join(int [] a, int [] b)
     {
         int [] result = new int[a.length + b.length];
         int idx = 0;
 
-        for (int i = 0; i < a.length; ++i)
-            result[idx++] = a[i];
+        for (int val : a)
+            result[idx++] = val;
 
-        for (int i = 0; i < b.length; ++i)
-            result[idx++] = b[i];
+        for (int val : b)
+            result[idx++] = val;
 
         return result;
     }
@@ -193,8 +191,8 @@ public class ArrayUtil {
 
     public static void print(double [] a)
     {
-        for (int i = 0; i < a.length; ++i)
-            System.out.printf("%f%n", a[i]);
+        for (double val : a)
+            System.out.printf("%f%n", val);
     }
 
     public static void print(int [] a)
@@ -206,17 +204,16 @@ public class ArrayUtil {
     {
         String fmt = String.format("%%0%dd ", n);
 
-        for (int i = 0; i < a.length; ++i)
-            System.out.printf(fmt, a[i]);
+        for (int val : a)
+            System.out.printf(fmt, val);
 
         System.out.println();
     }
 
-
     public static void print(String [] s)
     {
-        for (int i = 0; i < s.length; ++i)
-            System.out.println(s[i]);
+        for (String str : s)
+            System.out.println(str);
     }
 
     public static void print(int [][] a)
@@ -226,8 +223,8 @@ public class ArrayUtil {
 
     public static void print(int n, int [][] a)
     {
-        for (int i = 0; i < a.length; ++i)
-            print(n, a[i]);
+        for (int[] array : a)
+            print(n, array);
     }
 
     public static void reverse(int [] a)
@@ -265,8 +262,8 @@ public class ArrayUtil {
     {
         int total = 0;
 
-        for (int i = 0; i < a.length; ++i)
-            total += a[i];
+        for (int val : a)
+            total += val;
 
         return total;
     }

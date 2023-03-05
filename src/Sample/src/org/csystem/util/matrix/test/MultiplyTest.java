@@ -4,9 +4,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 import static org.csystem.util.array.ArrayUtil.print;
-import static org.csystem.util.matrix.MatrixUtil.*;
+import static org.csystem.util.matrix.MatrixUtil.getRandomMatrix;
+import static org.csystem.util.matrix.MatrixUtil.multiply;
 
-class AddTest {
+class MultiplyTest {
 	public static void run()
 	{
 		Scanner kb = new Scanner(System.in);
@@ -18,15 +19,16 @@ class AddTest {
 		for (int i = 0; i < count; ++i) {
 			int m = r.nextInt(4, 10);
 			int n = r.nextInt(4, 10);
+			int k = r.nextInt(4, 10);
 			int [][] a = getRandomMatrix(r, m, n, 0, 99);
-			int [][] b = getRandomMatrix(r, m, n, 0, 99);
+			int [][] b = getRandomMatrix(r, n, k, 0, 99);
 
 			System.out.println("---------------------------------------------------");
 			print(2, a);
 			System.out.println();
 			print(2, b);
-			System.out.println("Matrislerin toplamı:");
-			print(3, add(a, b));
+			System.out.println("Matrislerin çarpımı:");
+			print(3, multiply(a, b));
 			System.out.println("---------------------------------------------------");
 		}
 	}
