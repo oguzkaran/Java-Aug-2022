@@ -45,7 +45,7 @@ public class StringUtil {
 		int count = 0;		
 		
 		for (int i = -1; (i = s1.indexOf(s2, i + 1)) != -1; ++count)
-			;			
+			;
 		
 		return count;
 	}
