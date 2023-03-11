@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: MatrixUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 05.03.2023
+	LAST UPDATE	: 11.03.2023
 
 	Utility class for matrix operations
 
@@ -123,5 +123,14 @@ public class MatrixUtil {
         return t;
     }
 
-    //...
+    public static long sum(int [][] a)
+    {
+        long total = 0;
+
+        for (int [] rows : a)
+            for (int val  : rows)
+                total += val;
+
+        return total;
+    }
 }

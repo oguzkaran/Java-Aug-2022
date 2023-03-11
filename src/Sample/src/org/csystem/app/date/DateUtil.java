@@ -8,6 +8,13 @@ public class DateUtil {
 										"Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"};
 	public static String [] monthsEN = {"", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
+	public static String getDateStrTR(int day, int month, int year)
+	{
+		int dayOfWeek = getDayOfWeek(day, month, year);
+
+		return String.format("%d %s %04d %s", day, monthsTR[month], year, dayOfWeeksTR[dayOfWeek]);
+	}
+
 	public static void printDateTR(int day, int month, int year)
 	{
 		int dayOfWeek = getDayOfWeek(day, month, year);
