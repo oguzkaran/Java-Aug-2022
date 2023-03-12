@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 11.03.2023
+	LAST UPDATE	: 12.03.2023
 
 	Utility class for string operations
 
@@ -15,12 +15,12 @@ import org.csystem.util.array.ArrayUtil;
 import java.util.Random;
 
 public class StringUtil {
-	public static String alphabetTR = "abcçdefgğhıijklmnoöprsştuüvyz";
-	public static String alphabetEN = "abcdefghijklmnopqrstuwvxyz";
-	public static String alphabetCapitalTR = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ";
-	public static String alphabetCapitalEN = "ABCDEFGHIJKLMNOPQRSTUWVXYZ";
-	public static String alphabetAllTR = alphabetTR + alphabetCapitalTR;
-	public static String alphabetAllEN = alphabetEN + alphabetCapitalEN;
+	private static String alphabetTR = "abcçdefgğhıijklmnoöprsştuüvyz";
+	private static String alphabetEN = "abcdefghijklmnopqrstuwvxyz";
+	private static String alphabetCapitalTR = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ";
+	private static String alphabetCapitalEN = "ABCDEFGHIJKLMNOPQRSTUWVXYZ";
+	private static String alphabetAllTR = alphabetTR + alphabetCapitalTR;
+	private static String alphabetAllEN = alphabetEN + alphabetCapitalEN;
 
 	public static String capitalize(String s)
 	{
@@ -54,7 +54,6 @@ public class StringUtil {
 	{
 		return countString(s1.toLowerCase(), s2.toLowerCase());
 	}
-
 
 	public static void fillRandomTexts(Random r, String [] texts, int n, String sourceText)
 	{
@@ -419,7 +418,7 @@ public class StringUtil {
 		return wrapWith(s, '(', ')');
 	}
 
-	public static String wrapWithBCurlyracesStrip(String s)
+	public static String wrapWithCurlyBracesStrip(String s)
 	{
 		return wrapWithStrip(s, '{', '}');
 	}

@@ -18,7 +18,7 @@ public class FindTextInCurlyApp {
 
             findTextInCurly.parse();
 
-            System.out.println(findTextInCurly.isValid ? findTextInCurly.result : "yanlış bir giriş");
+            System.out.println(findTextInCurly.isValid() ? findTextInCurly.getResult() : "yanlış bir giriş");
         }
 
         System.out.println("Tekrar yapıyor musunuz?");

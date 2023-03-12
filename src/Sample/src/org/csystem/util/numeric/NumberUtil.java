@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: NumberUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 26.02.2023
+	LAST UPDATE	: 12.03.2023
 
 	Utility class for numeric operations
 
@@ -15,10 +15,10 @@ import static java.lang.Math.log10;
 import static java.lang.Math.pow;
 
 public class NumberUtil {
-	public static String [] onesTR = {"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"};
-	public static String [] tensTR = {"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"};
+	private static String [] onesTR = {"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"};
+	private static String [] tensTR = {"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"};
 
-	public static int [] getDigits(long val, int n)
+	private static int [] getDigits(long val, int n)
 	{
 		int [] values = new int[val == 0 ? 1 : (int)(log10((val = abs(val))) / n) + 1];
 		int powOfTen = (int)pow(10, n);
@@ -29,7 +29,7 @@ public class NumberUtil {
 		return values;
 	}
 
-	public static int getDigitsPowSum(int val)
+	private static int getDigitsPowSum(int val)
 	{
 		int n = countDigits(val);
 		int total = 0;
