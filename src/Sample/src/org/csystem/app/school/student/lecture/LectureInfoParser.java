@@ -3,7 +3,7 @@ package org.csystem.app.school.student.lecture;
 import org.csystem.app.date.DateUtil;
 
 public class LectureInfoParser {
-    public LectureInfo lectureInfo;
+    private LectureInfo m_lectureInfo;
 
     public static String getDateStr(String str)
     {
@@ -19,12 +19,17 @@ public class LectureInfoParser {
 
         //...
 
-        lectureInfo = new LectureInfo();
-        lectureInfo.studentName = lectureInfoStr[0];
-        lectureInfo.name = lectureInfoStr[1];
-        lectureInfo.midtermDate = getDateStr(lectureInfoStr[2]);
-        lectureInfo.finalDate = getDateStr(lectureInfoStr[3]);
-        lectureInfo.midtermGrade = Integer.parseInt(lectureInfoStr[4]);
-        lectureInfo.finalGrade = Integer.parseInt(lectureInfoStr[5]);
+        m_lectureInfo = new LectureInfo();
+        m_lectureInfo.setStudentName(lectureInfoStr[0]);
+        m_lectureInfo.setName(lectureInfoStr[1]);
+        m_lectureInfo.setMidtermDate(getDateStr(lectureInfoStr[2]));
+        m_lectureInfo.setFinalDate(getDateStr(lectureInfoStr[3]));
+        m_lectureInfo.setMidtermGrade(Integer.parseInt(lectureInfoStr[4]));
+        m_lectureInfo.setFinalGrade(Integer.parseInt(lectureInfoStr[5]));
+    }
+
+    public LectureInfo getLectureInfo()
+    {
+        return m_lectureInfo;
     }
 }

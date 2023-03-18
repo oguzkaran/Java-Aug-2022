@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: NumberUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 12.03.2023
+	LAST UPDATE	: 18.03.2023
 
 	Utility class for numeric operations
 
@@ -15,6 +15,9 @@ import static java.lang.Math.log10;
 import static java.lang.Math.pow;
 
 public class NumberUtil {
+	private NumberUtil()
+	{}
+
 	private static String [] onesTR = {"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"};
 	private static String [] tensTR = {"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"};
 

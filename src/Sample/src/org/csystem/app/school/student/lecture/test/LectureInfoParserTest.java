@@ -58,7 +58,7 @@ public class LectureInfoParserTest {
 
             LectureInfoParser parser = new LectureInfoParser(str);
 
-            LectureParserAppConsoleUtil.printLectureInfo(parser.lectureInfo);
+            LectureParserAppConsoleUtil.printLectureInfo(parser.getLectureInfo());
         }
 
         System.out.println("Tekrar yapıyor musunuz?");
