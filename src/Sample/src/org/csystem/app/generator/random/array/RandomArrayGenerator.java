@@ -2,11 +2,10 @@ package org.csystem.app.generator.random.array;
 
 import org.csystem.util.array.ArrayUtil;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class RandomArrayGenerator {
-    private int [] m_numbers;
+    private final int [] m_numbers;
 
     public RandomArrayGenerator(Random random, int count, int min, int bound)
     {

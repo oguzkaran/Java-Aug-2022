@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ExamSimulation {
-    private String m_lectureName;
+    private final String m_lectureName;
     private int [][] m_grades;
     private double [] m_averages;
     private  double m_average;

@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Craps {
 	private boolean m_win;
-	private Random m_random;
+	private final Random m_random;
 	
 	private int roll()
 	{

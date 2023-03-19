@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 18.03.2023
+	LAST UPDATE	: 19.03.2023
 
 	Utility class for string operations
 
@@ -18,12 +18,12 @@ public class StringUtil {
 	private StringUtil()
 	{}
 
-	private static String alphabetTR = "abcçdefgğhıijklmnoöprsştuüvyz";
-	private static String alphabetEN = "abcdefghijklmnopqrstuwvxyz";
-	private static String alphabetCapitalTR = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ";
-	private static String alphabetCapitalEN = "ABCDEFGHIJKLMNOPQRSTUWVXYZ";
-	private static String alphabetAllTR = alphabetTR + alphabetCapitalTR;
-	private static String alphabetAllEN = alphabetEN + alphabetCapitalEN;
+	private static final String ALPHABET_TR = "abcçdefgğhıijklmnoöprsştuüvyz";
+	private static final String ALPHABET_EN = "abcdefghijklmnopqrstuwvxyz";
+	private static final String ALPHABET_CAPITAL_TR = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ";
+	private static final String ALPHABET_CAPITAL_EN = "ABCDEFGHIJKLMNOPQRSTUWVXYZ";
+	private static final String ALPHABET_ALL_TR = ALPHABET_TR + ALPHABET_CAPITAL_TR;
+	private static final String ALPHABET_ALL_EN = ALPHABET_EN + ALPHABET_CAPITAL_EN;
 
 	public static String capitalize(String s)
 	{
@@ -72,22 +72,22 @@ public class StringUtil {
 
 	public static void fillRandomTextsTR(Random r, String [] texts, int n)
 	{
-		fillRandomTexts(r, texts, n, alphabetAllTR);
+		fillRandomTexts(r, texts, n, ALPHABET_ALL_TR);
 	}
 
 	public static void fillRandomTextsTR(Random r, String [] texts, int min, int bound)
 	{
-		fillRandomTexts(r, texts, min, bound, alphabetAllTR);
+		fillRandomTexts(r, texts, min, bound, ALPHABET_ALL_TR);
 	}
 
 	public static void fillRandomTextsEN(Random r, String [] texts, int n)
 	{
-		fillRandomTexts(r, texts, n, alphabetAllEN);
+		fillRandomTexts(r, texts, n, ALPHABET_ALL_EN);
 	}
 
 	public static void fillRandomTextsEN(Random r, String [] texts, int min, int bound)
 	{
-		fillRandomTexts(r, texts, min, bound, alphabetAllEN);
+		fillRandomTexts(r, texts, min, bound, ALPHABET_ALL_EN);
 	}
 
 	public static String getRandomText(Random r, int n, String sourceText)
@@ -126,7 +126,7 @@ public class StringUtil {
 	
 	public static String getRandomTextEN(Random r, int n)
 	{
-		return getRandomText(r, n, alphabetAllEN);
+		return getRandomText(r, n, ALPHABET_ALL_EN);
 	}	
 	
 	public static String getRandomTextTR(int n)
@@ -136,27 +136,27 @@ public class StringUtil {
 	
 	public static String getRandomTextTR(Random r, int n)
 	{
-		return getRandomText(r, n, alphabetAllTR);
+		return getRandomText(r, n, ALPHABET_ALL_TR);
 	}
 
 	public static String [] getRandomTextsTR(Random r, int count, int min, int bound)
 	{
-		return getRandomTexts(r, count, min, bound, alphabetAllTR);
+		return getRandomTexts(r, count, min, bound, ALPHABET_ALL_TR);
 	}
 
 	public static String [] getRandomTextsTR(Random r, int count, int n)
 	{
-		return getRandomTexts(r, count, n, alphabetAllTR);
+		return getRandomTexts(r, count, n, ALPHABET_ALL_TR);
 	}
 
 	public static String [] getRandomTextsEN(Random r, int count, int min, int bound)
 	{
-		return getRandomTexts(r, count, min, bound, alphabetAllEN);
+		return getRandomTexts(r, count, min, bound, ALPHABET_ALL_EN);
 	}
 
 	public static String [] getRandomTextsEN(Random r, int count, int n)
 	{
-		return getRandomTexts(r, count, n, alphabetAllEN);
+		return getRandomTexts(r, count, n, ALPHABET_ALL_EN);
 	}
 
 	public static String getShortestPangramEN(String s)
