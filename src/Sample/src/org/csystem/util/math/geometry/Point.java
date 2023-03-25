@@ -1,9 +1,9 @@
 /*----------------------------------------------------------------
 	FILE		: Point.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 12.03.2023
+	LAST UPDATE	: 25.03.2023
 
-	Point class that represents 2 dimensional point in
+	Immutable Point class that represents 2 dimensional point in
 	Cartesian plane
 
 	Copyleft (c) 1993 C and System Programmers Association
@@ -11,26 +11,39 @@
 ----------------------------------------------------------------*/
 package org.csystem.util.math.geometry;
 
-import static java.lang.Math.pow;
-import static java.lang.Math.sqrt;
-
 public class Point {
-	private double m_x;
-	private double m_y;
-	
-	public Point()
-	{		
-	}
-	
-	public Point(double x)
+	private final double m_x;
+	private final double m_y;
+
+	private Point(double a, double b, boolean polar)
 	{
-		m_x = x;
+		m_x = PointCommon.createX(a, b, polar);
+		m_y = PointCommon.createY(a, b, polar);
 	}
-	
-	public Point(double x, double y)
+
+	public static Point createCartesian()
 	{
-		m_x = x;
-		m_y = y;
+		return createCartesian(0);
+	}
+
+	public static Point createCartesian(double x)
+	{
+		return createCartesian(x, 0);
+	}
+
+	public static Point createCartesian(double x, double y)
+	{
+		return new Point(x, y, false);
+	}
+
+	public static Point createPolar(double radius)
+	{
+		return new Point(radius, 0, true);
+	}
+
+	public static Point createPolar(double radius, double theta)
+	{
+		return new Point(radius, theta, true);
 	}
 
 	public double getX()
@@ -38,19 +51,9 @@ public class Point {
 		return m_x;
 	}
 
-	public void setX(double x)
-	{
-		m_x = x;
-	}
-
 	public double getY()
 	{
 		return m_y;
-	}
-
-	public void setY(double y)
-	{
-		m_y = y;
 	}
 
 	public double distance()
@@ -65,22 +68,11 @@ public class Point {
 	
 	public double distance(double x, double y)
 	{
-		return sqrt(pow(m_x - x, 2) + pow(m_y - y, 2));
-	}	
-	
-	public void offset(double dxy)
-	{
-		offset(dxy, dxy);
-	}
-	
-	public void offset(double dx, double dy)
-	{
-		m_x += dx;
-		m_y += dy;
+		return PointCommon.distance(m_x, m_y, x, y);
 	}
 	
 	public String toString()
 	{
-		return String.format("(%f, %f)", m_x, m_y);
+		return PointCommon.toString(m_x, m_y);
 	}
 }

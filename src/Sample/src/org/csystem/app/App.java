@@ -1,23 +1,18 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Sınıf Çalışması: Aşağıda açıklanan sınıfı yazınız
-	Açıklamalar:
-		- Sınıfın ismi IntValue olacaktır
 
-		- Sınıf immutable olarak yazılacaktır
-
-		- Sınıf int türden bir değeri sarmalayacaktır (wrapper). Yani int türden bir değeri tutacaktır
-
-		- Sınıf [-128, 127] aralığında değerlere ilişkin sarmalanan nesneleri ilk kez istendiğinde yaratacak sonraki
-		isteklerde aynı nesnenin referansını verecektir. Bu kavrama "ön bellek (cache)" denir.
-
-	Not: Java'da böyle bir sınıf vardır ve çok sık kullanılır. Burada böyle bir sınıfın nasıl yazıldığına odaklanınız
 -----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
+
+import org.csystem.util.math.geometry.Point;
 
 class App {
 	public static void main(String [] args)
 	{
+		Point p1 = Point.createCartesian(100, 100);
+		Point p2 = Point.createPolar(100, 50);
 
+		System.out.println(p1.toString());
+		System.out.println(p2.toString());
 	}
 }
 

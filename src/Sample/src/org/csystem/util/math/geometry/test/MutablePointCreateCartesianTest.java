@@ -1,11 +1,11 @@
 package org.csystem.util.math.geometry.test;
 
-import org.csystem.util.math.geometry.Circle;
+import org.csystem.util.math.geometry.MutablePoint;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class CircleTest {
+public class MutablePointCreateCartesianTest {
     public static void run()
     {
         Scanner kb = new Scanner(System.in);
@@ -16,14 +16,13 @@ public class CircleTest {
 
         while (count-- > 0) {
             System.out.println("---------------------------------------------------");
-            double radius = random.nextDouble(-23.34, 23.34);
-            System.out.printf("Generated Radius:%f%n", radius);
-            Circle c = new Circle(radius);
+            double x = random.nextDouble(-23.34, 23.34);
+            double y = random.nextDouble(-23.34, 23.34);
 
-            System.out.printf("Radius: %f%n", c.getRadius());
-            System.out.printf("Area: %f%n", c.getArea());
-            System.out.printf("Perimeter: %f%n", c.getPerimeter());
-            System.out.println(c.toString());
+            System.out.printf("Generated Cartesian Coordinate:(%f, %f)%n", x, y);
+            MutablePoint p = MutablePoint.createCartesian(x, y);
+
+            System.out.println(p.toString());
             System.out.println("---------------------------------------------------");
         }
 
