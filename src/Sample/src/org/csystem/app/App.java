@@ -1,46 +1,30 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	enum class'lar enum anahtar sözcüğü ile bildirilir. enum sınıfı içerisinde ilk noktalı virgülden önce (noktalı virgülün
-	zorunlu olduğıu durumlar vardır. Zorunlu değilse koymayacağız) bildirilen isimlere "enum sabitleri (enum constants)"
-	denir. Bu isimler public, static ve finak olarak bildirilmiş o enum sınıfı türünden referanslardır. Bu referansların
-	herbiri ilgili enum sınıfı türünden yaratılmış olan bir nesnenin adresini tutar. enum sabitleri için public, static,
-	final ve tür bilgisi yazılması geçersizdir
+	Sınıflararası İlişkiler:
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
+
+import java.util.Scanner;
 
 class App {
 	public static void main(String [] args)
 	{
-		BirthDateApp.run();
+		Scanner kb = new Scanner(System.in);
+		System.out.print("Input a device status text as OPEN, CLOSED or INDETERMINATE:");
+		String statusStr = kb.nextLine().toUpperCase();
+		DeviceStatus deviceStatus = DeviceStatus.valueOf(statusStr);
+
+		System.out.println(
+				switch (deviceStatus) {
+					case OPEN -> "Device open";
+					case CLOSED -> "Device closed";
+					default -> "Device status unknown";
+				});
+
+		System.out.println("Thanks!...");
 	}
 }
 
-class BirthDateApp {
-	public static void run()
-	{
-		//...
-		Date date = new Date();
-
-		date.setMonth(Month.SEP);
-		//...
-	}
+enum DeviceStatus {
+	OPEN, CLOSED, INDETERMINATE
 }
-
-enum Month {
-	JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC
-}
-
-
-class Date {
-	private int m_month;
-
-	//...
-
-	public void setMonth(Month month)
-	{
-		//...
-	}
-
-	//...
-}
-
 
