@@ -1,31 +1,143 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Sınıflararası İlişkiler: Sınıflar arasındaki ilişkikler aslında nesneler arasında ilişkiler olarak düşünülmelidir. Örneğin,
-	araba ile motoru arasında, uçak ile pilotları arasında ilişki vardır. Burada aslında araba nesnesi ile motor nesnesi,
-	uçak nesnesi ile pilot nesnesi arasındaki ilişkiden bahsedilmektedir. Ancak şüphesiz bu ilişkilere uygun olarak
-	sınıfların bildirilmesi gerekir.
-
-	Nesne yönelimli programlama tekniğinin kullanıldığı projeler için kodlama aşamasına geçilmeden önce, kabaca ne
-	yapılacağı bilindikten sonra, sınıflar ve aralarındaki ilişkiler belirlenir. Sonra kodlamaya geçilir.
-
-	Anahtar Notlar: Bir projenin müşteri ile görüşülmesinden (genel olarak ihtiyaçların belirlenmesi), teslimine (deployment)
-	geçen sürecin genel olarak standart şemalar ile anlatılmasını sağlayan UML (Unified Modeling Language) denilen bir araç
-	bazı durumlarda kullanılabilmektedir. Bu aracın, önemli ve özellikle geliştiricileri ilgilendiren şemalarından biri
-	"sınıf şeması (class diagram)"'dır. "class diagram" kodlamaya yönelik ve genel olarak kodlamaya geçilmeden önce çizilir.
-	Bu şemada sınıflar ve aralarındaki ilişkiler belirlenir.
-
-	Anahtar Notlar: UML her zaman yani her projede ve her detayı ile kullanılmalı mıdır? Hayır. Gerektiğinde, gerektiği
-	kadar kullanılması prtik anlamda geçerlidir (best practise).
-
-	Anahtar Notlar: UML her detayıyla programcı tarafından bilinmeli midir? Hayır. Programcının kariyeri boyunca özellikle
-	bazı şemaları öğrenmesi gerekebilir. Ancak, şu aşamada aciliyeti yoktur.
-
-	Anahtar Notlar:
+	A ile B arasındaki "aggregation" ilişkisinin genel bir implementasyonu
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
 class App {
 	public static void main(String [] args)
 	{
+		Driver driver = new Driver("Ali Serçe");
+		Car car = new Car(driver);
 
+		car.run();
+	}
+}
+
+class Plane {
+	private Engine [] m_engines;
+	private Pilot[] m_pilots;
+	//...
+}
+
+class Car {
+	private Engine m_engine;
+	private Driver m_driver;
+
+	public Car(Driver driver/*...*/)
+	{
+		m_engine = new Engine(/*...*/);
+		m_driver = driver;
+	}
+
+	public void brake()
+	{
+		//...
+		m_engine.slowEngine();
+	}
+
+	public void run()
+	{
+		System.out.printf("Driver: %s%n", m_driver.toString());
+		m_engine.startEngine();
+		m_engine.accelerateEngine();
+
+		System.out.println("running!...");
+		//...
+
+		brake();
+		m_engine.stopEngine();
+	}
+
+	//...
+}
+
+class Pilot {
+	private String m_name;
+	private int m_title;
+	//...
+
+	public Pilot(String name, int title)
+	{
+		//...
+		m_name = name;
+		m_title = title;
+	}
+
+	public String getName()
+	{
+		return m_name;
+	}
+
+	public void setName(String name)
+	{
+		//...
+		m_name = name;
+	}
+
+	public int getTitle()
+	{
+		return m_title;
+	}
+
+	public void setTitle(int title)
+	{
+		//...
+		m_title = title;
+	}
+
+	public String toString()
+	{
+		return String.format("[%d]%s", m_title, m_name);
+	}
+}
+
+
+class Driver {
+	private String m_name;
+	//...
+
+	public Driver(String name)
+	{
+		//...
+		m_name = name;
+	}
+
+	public String getName()
+	{
+		return m_name;
+	}
+
+	public void setName(String name)
+	{
+		//...
+		m_name = name;
+	}
+
+	public String toString()
+	{
+		return m_name;
+	}
+}
+
+class Engine {
+	//...
+	public void startEngine()
+	{
+		System.out.println("Start engine");
+	}
+
+	public void accelerateEngine()
+	{
+		System.out.println("Accelerate engine");
+	}
+
+	public void slowEngine()
+	{
+		System.out.println("Slow engine");
+	}
+
+	public void stopEngine()
+	{
+		System.out.println("Stop engine");
 	}
 }
