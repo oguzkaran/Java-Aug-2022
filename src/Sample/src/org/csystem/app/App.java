@@ -10,11 +10,3 @@ class App {
 	}
 }
 
-class A extends Object {
-	//...
-}
-
-class B {
-	//...
-}
-
