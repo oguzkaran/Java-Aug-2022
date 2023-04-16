@@ -46,6 +46,7 @@ public class NumericLottery {
     {
         m_random = r;
     }
+
     public int [] getNumbers()
     {
         return getNumbers(getFlags());
