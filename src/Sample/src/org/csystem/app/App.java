@@ -1,42 +1,32 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	Programlamada genelleştirme açısından türden bağımsız (type independent) kod istenir. Aslında programlamada temel amaç
-	programa yapılacak eklentiler durumunda eski kodlara en az şekilde dokunmaktır. Şöyle bir genel kural benimsenebilir:
-	"Bir programın ilerleyen bir versiyonunda senaryosu değişmedikten sonra eski yazılmış kodlara ne kadar az müdahale edilmesi
-	gerekiyorsa, kod o kadar iyi (kaliteli) yazılmıştır". İşte bu sebeple türden bağımsız kod yazmak programa eklenecek örneğin
-	sınıfların bir lego'nun parçası gibi diğer parçalara dokunmadan eklenmesini sağlar.
-
-
+	Bir dizi referansının denamik türü JNI (Java Native Interface) tür ismi olarak elde edilir. Bu isim arakoddaki
+	ismidir. Detaylar burada ele alınmayacaktır
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
 class App {
 	public static void main(String [] args)
 	{
-		B b = new B();
+		int [] a = new int[5];
+		boolean [] b = new boolean[10];
+		double [] c = new double[20];
+		long [] d = new long[23];
+		char [] e = new char[34];
+		Sample [] f = new Sample[20];
+		String [] g = new String[30];
+		int [][] h = new int[30][];
 
-		b.x = 10;
-		b.y = 20.5;
-
-		System.out.printf("b.x = %d%n", b.x);
-		System.out.printf("b.y = %f%n", b.y);
-
-		A a = b;
-
-		System.out.printf("a.x = %d%n", a.x);
-		++a.x;
-		System.out.printf("a.x = %d%n", a.x);
-		System.out.printf("b.x = %d%n", b.x);
-		System.out.printf("b.y = %f%n", b.y);
+		System.out.printf("Dynamic Type:%s%n", a.getClass().getName());
+		System.out.printf("Dynamic Type:%s%n", b.getClass().getName());
+		System.out.printf("Dynamic Type:%s%n", c.getClass().getName());
+		System.out.printf("Dynamic Type:%s%n", d.getClass().getName());
+		System.out.printf("Dynamic Type:%s%n", e.getClass().getName());
+		System.out.printf("Dynamic Type:%s%n", f.getClass().getName());
+		System.out.printf("Dynamic Type:%s%n", g.getClass().getName());
+		System.out.printf("Dynamic Type:%s%n", h.getClass().getName());
 	}
 }
 
-class B extends A {
+class Sample {
 	//...
-	public double y;
 }
-
-class A {
-	//...
-	public int x;
-}
-

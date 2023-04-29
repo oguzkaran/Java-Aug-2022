@@ -6,7 +6,7 @@ import java.util.Scanner;
 import static org.csystem.util.array.ArrayUtil.*;
 
 public class BubbleSortTest {
-    public static void run()
+    private static void run()
     {
         Scanner kb = new Scanner(System.in);
         Random r = new Random();

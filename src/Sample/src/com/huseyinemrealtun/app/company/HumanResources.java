@@ -10,5 +10,6 @@ public class HumanResources {
         System.out.printf("Name:%s%n", employee.getName());
 
         //...
+        System.out.println("...");
     }
 }

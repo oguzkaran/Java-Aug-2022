@@ -7,7 +7,6 @@ public class Employee {
 
     //...
 
-
     public String getName()
     {
         return m_name;
