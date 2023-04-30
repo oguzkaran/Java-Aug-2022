@@ -4,7 +4,6 @@ import org.csystem.generator.random.RandomObjectArrayGenerator;
 import org.csystem.util.array.ArrayUtil;
 import org.csystem.util.math.Complex;
 import org.csystem.util.math.geometry.Point;
-import org.csystem.util.wrapper.IntValue;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -23,13 +22,15 @@ public class RandomObjectArrayGeneratorApp {
                 System.out.printf("%s sayısının normu:%s%n", z.toString(), z.getNorm());
             else if (o instanceof Point p)
                 System.out.printf("x = %.2f, y = %.2f%n", p.getX(), p.getY());
-            else if (o instanceof IntValue iv) {
-                int value = iv.getValue();
+            else if (o instanceof Integer iv) {
+                int value = iv.intValue();
 
                 System.out.printf("%d * %d = %d%n", value, value, value *  value);
             }
-            if (o instanceof int [] a)
+            else if (o instanceof int [] a)
                 ArrayUtil.print(2, a);
+            else if (o instanceof Boolean flag)
+                System.out.println(flag ? "Doğru" : "Yanlış");
 
             System.out.println("-----------------------------------------------------");
         }
