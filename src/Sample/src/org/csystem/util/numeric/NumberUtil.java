@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: NumberUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 19.03.2023
+	LAST UPDATE	: 30.04.2023
 
 	Utility class for numeric operations
 
@@ -14,7 +14,7 @@ import static java.lang.Math.abs;
 import static java.lang.Math.log10;
 import static java.lang.Math.pow;
 
-public class NumberUtil {
+public final class NumberUtil {
 	private NumberUtil()
 	{}
 

@@ -23,14 +23,20 @@ public class RandomObjectArrayGeneratorApp {
             else if (o instanceof Point p)
                 System.out.printf("x = %.2f, y = %.2f%n", p.getX(), p.getY());
             else if (o instanceof Integer iv) {
-                int value = iv.intValue();
+                int value = iv;
 
                 System.out.printf("%d * %d = %d%n", value, value, value *  value);
             }
             else if (o instanceof int [] a)
                 ArrayUtil.print(2, a);
-            else if (o instanceof Boolean flag)
+            else if (o instanceof Boolean b) {
+                boolean flag = b;
                 System.out.println(flag ? "Doğru" : "Yanlış");
+            }
+            else if (o instanceof Character ch) {
+                char c = ch;
+                System.out.printf("Harf:%c%n", c);
+            }
 
             System.out.println("-----------------------------------------------------");
         }

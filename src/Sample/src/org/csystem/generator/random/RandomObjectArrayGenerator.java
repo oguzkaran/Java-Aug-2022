@@ -10,15 +10,16 @@ import java.util.Random;
 public class RandomObjectArrayGenerator {
     private final Random m_random;
 
-    //String, Complex, Point, Integer, int [], Boolean
+    //String, Complex, Point, Integer, int [], Boolean, Character
     public Object createObject()
     {
-        return switch (m_random.nextInt(6)) {
+        return switch (m_random.nextInt(7)) {
             case 0 -> StringUtil.getRandomTextTR(m_random, m_random.nextInt(5, 11));
             case 1 -> new Complex(m_random.nextDouble(-10, 10), m_random.nextDouble(-10, 10));
             case 2 -> Point.createCartesian(m_random.nextDouble(-100, 100), m_random.nextDouble(-100, 100));
-            case 3 -> Integer.valueOf(m_random.nextInt(-128, 127));
-            case 4 -> Boolean.valueOf(m_random.nextBoolean());
+            case 3 -> m_random.nextInt(-128, 127);
+            case 4 -> m_random.nextBoolean();
+            case 5 -> (char)((m_random.nextBoolean() ? 'A' : 'a') + m_random.nextInt(26));
             default -> ArrayUtil.getRandomArray(m_random, m_random.nextInt(5, 16), 0, 100);
         };
     }

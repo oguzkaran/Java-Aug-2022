@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: LongValue.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 19.03.2023
+	LAST UPDATE	: 30.04.2023
 
 	Immutable LongValue class that wraps a long value by using cache
 	for values in [-128, 127] interval
@@ -11,7 +11,7 @@
 ----------------------------------------------------------------*/
 package org.csystem.util.wrapper;
 
-public class LongValue {
+public final class LongValue {
     private static final int CACHE_MIN = -128;
     private static final int CACHE_MAX = 127;
     private static final LongValue[] CACHE = new LongValue[CACHE_MAX - CACHE_MIN + 1];
