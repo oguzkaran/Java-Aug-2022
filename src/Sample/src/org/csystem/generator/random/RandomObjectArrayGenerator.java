@@ -11,7 +11,7 @@ public class RandomObjectArrayGenerator {
     private final Random m_random;
 
     //String, Complex, Point, Integer, int [], Boolean, Character
-    public Object createObject()
+    private Object createObject()
     {
         return switch (m_random.nextInt(7)) {
             case 0 -> StringUtil.getRandomTextTR(m_random, m_random.nextInt(5, 11));
