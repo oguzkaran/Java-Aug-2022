@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: ArrayUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 30.04.2023
+	LAST UPDATE	: 20.05.2023
 
 	Utility class for array operations
 
@@ -88,6 +88,17 @@ public final class ArrayUtil {
             bubbleSortAscending(a);
     }
 
+    public static int [] copyOf(int [] a, int newLength)
+    {
+        int [] result = new int[newLength];
+        int len = Math.min(a.length, newLength);
+
+        for (int i = 0; i < len; ++i)
+            result[i] = a[i];
+
+        return result;
+    }
+
     public static void drawHistogram(int [] data, int count, char ch)
     {
         int maxVal = max(data);
@@ -100,6 +111,11 @@ public final class ArrayUtil {
 
             System.out.println();
         }
+    }
+
+    public static int [] enlarge(int [] a, int newLength)
+    {
+        return newLength <= a.length ? a : copyOf(a, newLength);
     }
 
     public static void fillRandomArray(Random random, int [] a, int min, int bound)
@@ -177,8 +193,6 @@ public final class ArrayUtil {
 
         return result;
     }
-
-
 
     public static int partition(int [] a, int threshold)
     {
