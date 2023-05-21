@@ -20,7 +20,7 @@
 
 /*------------------------------------------------------------------
 	FILE		: Time.java
-	AUTHOR		: Java-Apr-2022 Group
+	AUTHOR		: Java-Aug-2022 Group
 	LAST UPDATE	: 01.04.2023
 
 	Time class that represents a time
