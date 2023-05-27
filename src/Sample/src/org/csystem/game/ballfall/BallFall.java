@@ -64,4 +64,9 @@ public class BallFall {
 			for (int i = 1; i <= height; ++i)
 				m_shape += "|*|\r\n";
 	}
+
+	public String toString()
+	{
+		return getShape();
+	}
 }

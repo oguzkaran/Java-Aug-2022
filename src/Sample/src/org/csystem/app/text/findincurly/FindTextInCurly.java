@@ -49,4 +49,9 @@ public class FindTextInCurly {
             m_result = m_result.substring(open + 1, close);
         }
     }
+
+    public String toString()
+    {
+        return String.format("%s", m_valid ? m_result : "");
+    }
 }

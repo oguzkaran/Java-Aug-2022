@@ -18,7 +18,12 @@ public class BallFallApp {
 				break;
 
 			bf.play(width, height);
-			System.out.println(bf.getShape());
+			System.out.println(bf);
 		}
+	}
+
+	public static void main(String[] args)
+	{
+		run();
 	}
 }
