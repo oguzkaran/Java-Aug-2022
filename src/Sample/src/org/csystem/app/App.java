@@ -1,33 +1,51 @@
 /*----------------------------------------------------------------------------------------------------------------------
-	static bir metot türemiş sınıfta aynı imza ve geri dönüş değeri ile yeniden yazılabilir (burada erişim belirleyici
-	erişim anlamında yükseltilebilir ancak düşürülemez). Bu durumda türemiş sınıf ismi kullanıldığında o sınıfın içerisinde
-	metot çağrılmış olur
-
-	Anahtar Notlar: Bazı kaynaklar bu duruma "static override" da demektedir. Ancak bu kavramda "override" terimi RTP
-	açısından değerlendirilmemelidir. RTP açaısından değerlendirildiğşnde static override kavramı diye bir şey olamaz
+	Aşağıdaki örneği inceleyiniz
 -----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 class App {
 	public static void main(String[] args)
 	{
-		A.foo();
-		B.foo();
+		Scanner kb = new Scanner(System.in);
+
+		try {
+			System.out.print("Bir sayı giriniz:");
+			double val = kb.nextDouble();
+			double result = MathUtil.log10(val);
+
+			System.out.printf("log10(%f) = %f%n", val, result);
+		}
+		catch (InputMismatchException ex) {
+			System.out.println("Geçeriz değer girildi!...");
+		}
+		catch (Throwable ex) {
+			System.out.println("Logaritma için geçersiz değer girilid!...");
+		}
+
+		System.out.println("Tekrar yapıyor musunuz?");
 	}
 }
 
-class B extends A {
-	public static void foo()
+class MathUtil {
+	public static double log10(double val)
 	{
-		System.out.println("B.foo");
-		A.foo();
+		if (val < 0)
+			throw new IndeterminateException();
+
+		if (val == 0)
+			throw new UndefinedException();
+
+		return Math.log10(val);
 	}
 }
 
-class A {
-	public static void foo()
-	{
-		System.out.println("A.foo");
-	}
+class IndeterminateException extends RuntimeException {
+	//...
+}
+
+class UndefinedException extends RuntimeException {
 	//...
 }
