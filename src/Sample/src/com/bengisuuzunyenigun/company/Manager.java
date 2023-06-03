@@ -35,6 +35,5 @@ public class Manager extends Employee {
     {
         return m_salary * 1.5;
     }
-
     //...
 }
