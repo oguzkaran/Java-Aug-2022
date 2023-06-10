@@ -7,13 +7,9 @@
 
         - Sınıfın public bölümünü değiştirmeden istediğiniz eklemeyi yapabilirsiniz
 
-        - Sınıf geçersiz zaman durumunu kontrol edecektir. Geçersizlik durumunda bir mesaj vererek program sonlandırılacaktır.
+        - Sınıf geçersiz zaman durumunu kontrol edecektir. Geçersizlik durumunda yazılmış olan DateTimeException fırlatacaktır
 
         - Sınıf 24 saat dilimine göre değerleri ele alacaktır
-
-        - Sınıfın içerisinde bildirilen metotlarda throw new UnsupportedOperationException("TODO"); biçimindeki deyim
-        geri dönüş değeri olan metotlar error vermesin diye yazışmıştır. Bu konu ileride ele alınacaktır. Metodu
-        yazarken bu deyimi kaldırınız
 
         - Sınıfa ilişkin test kodlarını da yazınız
 -----------------------------------------------------------------------------------------------------------------------*/

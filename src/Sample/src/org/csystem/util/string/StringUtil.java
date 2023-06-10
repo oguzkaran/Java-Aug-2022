@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 30.04.2023
+	LAST UPDATE	: 10.06.2023
 
 	Utility class for string operations
 
@@ -18,12 +18,21 @@ public final class StringUtil {
 	private StringUtil()
 	{}
 
-	private static final String ALPHABET_TR = "abcçdefgğhıijklmnoöprsştuüvyz";
-	private static final String ALPHABET_EN = "abcdefghijklmnopqrstuwvxyz";
-	private static final String ALPHABET_CAPITAL_TR = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ";
-	private static final String ALPHABET_CAPITAL_EN = "ABCDEFGHIJKLMNOPQRSTUWVXYZ";
-	private static final String ALPHABET_ALL_TR = ALPHABET_TR + ALPHABET_CAPITAL_TR;
-	private static final String ALPHABET_ALL_EN = ALPHABET_EN + ALPHABET_CAPITAL_EN;
+	private static final String ALPHABET_TR;
+	private static final String ALPHABET_EN;
+	private static final String ALPHABET_CAPITAL_TR;
+	private static final String ALPHABET_CAPITAL_EN;
+	private static final String ALPHABET_ALL_TR;
+	private static final String ALPHABET_ALL_EN;
+
+	static {
+		ALPHABET_TR = "abcçdefgğhıijklmnoöprsştuüvyz";
+		ALPHABET_EN = "abcdefghijklmnopqrstuwvxyz";
+		ALPHABET_CAPITAL_TR = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ";
+		ALPHABET_CAPITAL_EN = "ABCDEFGHIJKLMNOPQRSTUWVXYZ";
+		ALPHABET_ALL_TR = ALPHABET_TR + ALPHABET_CAPITAL_TR;
+		ALPHABET_ALL_EN = ALPHABET_EN + ALPHABET_CAPITAL_EN;
+	}
 
 	public static String capitalize(String s)
 	{

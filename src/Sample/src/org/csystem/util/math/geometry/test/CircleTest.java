@@ -15,16 +15,21 @@ public class CircleTest {
         int count = kb.nextInt();
 
         while (count-- > 0) {
-            System.out.println("---------------------------------------------------");
-            double radius = random.nextDouble(-23.34, 23.34);
-            System.out.printf("Generated Radius:%f%n", radius);
-            Circle c = new Circle(radius);
+            try {
+                System.out.println("---------------------------------------------------");
+                double radius = random.nextDouble(-23.34, 23.34);
+                System.out.printf("Generated Radius:%f%n", radius);
+                Circle c = new Circle(radius);
 
-            System.out.printf("Radius: %f%n", c.getRadius());
-            System.out.printf("Area: %f%n", c.getArea());
-            System.out.printf("Perimeter: %f%n", c.getPerimeter());
-            System.out.println(c.toString());
-            System.out.println("---------------------------------------------------");
+                System.out.printf("Radius: %f%n", c.getRadius());
+                System.out.printf("Area: %f%n", c.getArea());
+                System.out.printf("Perimeter: %f%n", c.getPerimeter());
+                System.out.println(c.toString());
+                System.out.println("---------------------------------------------------");
+            }
+            catch (IllegalArgumentException ex) {
+                System.out.println(ex.getMessage());
+            }
         }
 
         System.out.println("Tekrar yapıyor musunuz?");

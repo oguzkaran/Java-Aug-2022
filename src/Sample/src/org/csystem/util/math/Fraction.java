@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: Fraction.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 06.05.2023
+	LAST UPDATE	: 10.06.2023
 
 	Fraction class that represents fraction
 
@@ -37,9 +37,10 @@ public class Fraction {
     private static void check(int a, int b)
     {
         if (b == 0) {
-            System.out.printf("%s:%d, %d%n", a == 0 ? "Indeterminate" : "Undefined", a, b);
+            if (a == 0)
+                throw new NumberFormatException("Indeterminate");
 
-            System.exit(1); //Exception işlemlerine kadar sabrediniz
+            throw new NumberFormatException("Undefined");
         }
     }
 

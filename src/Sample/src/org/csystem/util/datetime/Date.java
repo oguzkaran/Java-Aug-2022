@@ -7,14 +7,10 @@
 
         - Sınıfın public bölümünü değiştirmeden istediğiniz eklemeyi yapabilirsiniz
 
-        - Sınıf geçersiz tarih durumunu kontrol edecektir. Geçersizlik durumunda bir mesaj vererek program sonlandırılacaktır
+        - Sınıf geçersiz tarih durumunu kontrol edecektir. Geçersizlik durumunda yazılmış olan DateTimeException fırlatacaktır
 
         - Sınıfın DayOfWeek ve Month enum class'larını kullanmaktadır. enum class'ların sabitlerini değiştirmeden istediğiniz
         eklemeyi yapabilirsiniz
-
-        - Sınıfın içerisinde bildirilen metotlarda throw new UnsupportedOperationException("TODO"); biçimindeki deyim
-        geri dönüş değeri olan metotlar error vermesin diye yazışmıştır. Bu konu ileride ele alınacaktır. Metodu
-        yazarken bu deyimi kaldırınız
 
         - Daha önce yazılmış olan DateUtil sınıfı içerisinde metotlardan yararlanabilirsiniz. Ancak sınıf DateUtil
         sınıfını kullanmayacaktır

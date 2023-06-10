@@ -8,7 +8,12 @@ import java.util.Scanner;
 public class FractionConstructorIndeterminateTest {
     public static void run()
     {
-        Fraction fraction = new Fraction(0, 0);
+        try {
+            Fraction fraction = new Fraction(0, 0);
+        }
+        catch (NumberFormatException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public static void main(String[] args)

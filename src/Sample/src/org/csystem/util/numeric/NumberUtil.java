@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: NumberUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 30.04.2023
+	LAST UPDATE	: 10.06.2023
 
 	Utility class for numeric operations
 
@@ -18,8 +18,13 @@ public final class NumberUtil {
 	private NumberUtil()
 	{}
 
-	private static final String [] ONES_TR = {"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"};
-	private static final String [] TENS_TR = {"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"};
+	private static final String [] ONES_TR;
+	private static final String [] TENS_TR;
+
+	static {
+		ONES_TR = new String []{"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"};
+		TENS_TR = new String[]{"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"};
+	}
 
 	private static int [] getDigits(long val, int n)
 	{
