@@ -1,8 +1,8 @@
 package com.com.cemilaksel.game.race.car.nascar;
 
-import org.csystem.game.template.Game;
+import org.csystem.game.template.IGame;
 
-public class NascarGame extends Game {
+public class NascarGame implements IGame {
     //...
     public void begin()
     {
