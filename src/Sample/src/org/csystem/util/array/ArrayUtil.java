@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: ArrayUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 20.05.2023
+	LAST UPDATE	: 17.06.2023
 
 	Utility class for array operations
 
@@ -10,7 +10,7 @@
 ----------------------------------------------------------------*/
 package org.csystem.util.array;
 
-import java.util.Random;
+import java.util.random.RandomGenerator;
 
 import static java.lang.Math.floor;
 
@@ -118,16 +118,16 @@ public final class ArrayUtil {
         return newLength <= a.length ? a : copyOf(a, newLength);
     }
 
-    public static void fillRandomArray(Random random, int [] a, int min, int bound)
+    public static void fillRandomArray(RandomGenerator randomGenerator, int [] a, int min, int bound)
     {
         for (int i = 0; i < a.length; ++i)
-            a[i] = random.nextInt(min, bound);
+            a[i] = randomGenerator.nextInt(min, bound);
     }
 
-    public static void fillRandomArray(Random random, double [] a, double min, double bound)
+    public static void fillRandomArray(RandomGenerator randomGenerator, double [] a, double min, double bound)
     {
         for (int i = 0; i < a.length; ++i)
-            a[i] = random.nextDouble(min, bound);
+            a[i] = randomGenerator.nextDouble(min, bound);
     }
 
     public static int [] getHistogramData(int [] a, int n)
@@ -140,20 +140,20 @@ public final class ArrayUtil {
         return counts;
     }
 
-    public static int [] getRandomArray(Random random, int count, int min, int bound)
+    public static int [] getRandomArray(RandomGenerator randomGenerator, int count, int min, int bound)
     {
         int [] a = new int[count];
 
-        fillRandomArray(random, a, min, bound);
+        fillRandomArray(randomGenerator, a, min, bound);
 
         return a;
     }
 
-    public static double [] getRandomArray(Random random, int count, double min, double bound)
+    public static double [] getRandomArray(RandomGenerator randomGenerator, int count, double min, double bound)
     {
         double [] a = new double[count];
 
-        fillRandomArray(random, a, min, bound);
+        fillRandomArray(randomGenerator, a, min, bound);
 
         return a;
     }

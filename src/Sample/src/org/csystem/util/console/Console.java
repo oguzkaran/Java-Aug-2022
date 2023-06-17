@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: Console.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 10.06.2023
+	LAST UPDATE	: 17.06.2023
 
 	Utility class for standard input and output operations
 
@@ -93,6 +93,12 @@ public final class Console {
                 System.out.print(invalidMessage);
             }
         }
+    }
+
+    public static String readString(String prompt)
+    {
+        write(prompt);
+        return KB.nextLine();
     }
 
     //...

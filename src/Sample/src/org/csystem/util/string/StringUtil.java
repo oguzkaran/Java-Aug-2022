@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 10.06.2023
+	LAST UPDATE	: 17.06.2023
 
 	Utility class for string operations
 
@@ -13,6 +13,7 @@ package org.csystem.util.string;
 import org.csystem.util.array.ArrayUtil;
 
 import java.util.Random;
+import java.util.random.RandomGenerator;
 
 public final class StringUtil {
 	private StringUtil()
@@ -67,63 +68,63 @@ public final class StringUtil {
 		return countString(s1.toLowerCase(), s2.toLowerCase());
 	}
 
-	public static void fillRandomTexts(Random r, String [] texts, int n, String sourceText)
+	public static void fillRandomTexts(RandomGenerator randomGenerator, String [] texts, int n, String sourceText)
 	{
 		for (int i = 0; i < texts.length; ++i)
-			texts[i] = getRandomText(r, n, sourceText);
+			texts[i] = getRandomText(randomGenerator, n, sourceText);
 	}
 
-	public static void fillRandomTexts(Random r, String [] texts, int min, int bound, String sourceText)
+	public static void fillRandomTexts(RandomGenerator randomGenerator, String [] texts, int min, int bound, String sourceText)
 	{
 		for (int i = 0; i < texts.length; ++i)
-			texts[i] = getRandomText(r, r.nextInt(min, bound), sourceText);
+			texts[i] = getRandomText(randomGenerator, randomGenerator.nextInt(min, bound), sourceText);
 	}
 
-	public static void fillRandomTextsTR(Random r, String [] texts, int n)
+	public static void fillRandomTextsTR(RandomGenerator randomGenerator, String [] texts, int n)
 	{
-		fillRandomTexts(r, texts, n, ALPHABET_ALL_TR);
+		fillRandomTexts(randomGenerator, texts, n, ALPHABET_ALL_TR);
 	}
 
-	public static void fillRandomTextsTR(Random r, String [] texts, int min, int bound)
+	public static void fillRandomTextsTR(RandomGenerator randomGenerator, String [] texts, int min, int bound)
 	{
-		fillRandomTexts(r, texts, min, bound, ALPHABET_ALL_TR);
+		fillRandomTexts(randomGenerator, texts, min, bound, ALPHABET_ALL_TR);
 	}
 
-	public static void fillRandomTextsEN(Random r, String [] texts, int n)
+	public static void fillRandomTextsEN(RandomGenerator randomGenerator, String [] texts, int n)
 	{
-		fillRandomTexts(r, texts, n, ALPHABET_ALL_EN);
+		fillRandomTexts(randomGenerator, texts, n, ALPHABET_ALL_EN);
 	}
 
-	public static void fillRandomTextsEN(Random r, String [] texts, int min, int bound)
+	public static void fillRandomTextsEN(RandomGenerator randomGenerator, String [] texts, int min, int bound)
 	{
-		fillRandomTexts(r, texts, min, bound, ALPHABET_ALL_EN);
+		fillRandomTexts(randomGenerator, texts, min, bound, ALPHABET_ALL_EN);
 	}
 
-	public static String getRandomText(Random r, int n, String sourceText)
+	public static String getRandomText(RandomGenerator randomGenerator, int n, String sourceText)
 	{
 		char [] c = new char[n];
 		int len = sourceText.length();
 		
 		for (int i = 0; i < n; ++i)
-			c[i] = sourceText.charAt(r.nextInt(len));
+			c[i] = sourceText.charAt(randomGenerator.nextInt(len));
 		
 		return String.valueOf(c);
 	}
 
-	public static String [] getRandomTexts(Random r, int count, int min, int bound, String sourceText)
+	public static String [] getRandomTexts(RandomGenerator randomGenerator, int count, int min, int bound, String sourceText)
 	{
 		String [] texts = new String[count];
 
-		fillRandomTexts(r, texts, min, bound, sourceText);
+		fillRandomTexts(randomGenerator, texts, min, bound, sourceText);
 
 		return texts;
 	}
 
-	public static String [] getRandomTexts(Random r, int count, int n, String sourceText)
+	public static String [] getRandomTexts(RandomGenerator randomGenerator, int count, int n, String sourceText)
 	{
 		String [] texts = new String[count];
 
-		fillRandomTexts(r, texts, n, sourceText);
+		fillRandomTexts(randomGenerator, texts, n, sourceText);
 
 		return texts;
 	}
@@ -133,9 +134,9 @@ public final class StringUtil {
 		return getRandomTextEN(new Random(), n);
 	}
 	
-	public static String getRandomTextEN(Random r, int n)
+	public static String getRandomTextEN(RandomGenerator randomGenerator, int n)
 	{
-		return getRandomText(r, n, ALPHABET_ALL_EN);
+		return getRandomText(randomGenerator, n, ALPHABET_ALL_EN);
 	}	
 	
 	public static String getRandomTextTR(int n)
@@ -143,29 +144,29 @@ public final class StringUtil {
 		return getRandomTextTR(new Random(), n);
 	}	
 	
-	public static String getRandomTextTR(Random r, int n)
+	public static String getRandomTextTR(RandomGenerator randomGenerator, int n)
 	{
-		return getRandomText(r, n, ALPHABET_ALL_TR);
+		return getRandomText(randomGenerator, n, ALPHABET_ALL_TR);
 	}
 
-	public static String [] getRandomTextsTR(Random r, int count, int min, int bound)
+	public static String [] getRandomTextsTR(RandomGenerator r, int count, int min, int bound)
 	{
 		return getRandomTexts(r, count, min, bound, ALPHABET_ALL_TR);
 	}
 
-	public static String [] getRandomTextsTR(Random r, int count, int n)
+	public static String [] getRandomTextsTR(RandomGenerator randomGenerator, int count, int n)
 	{
-		return getRandomTexts(r, count, n, ALPHABET_ALL_TR);
+		return getRandomTexts(randomGenerator, count, n, ALPHABET_ALL_TR);
 	}
 
-	public static String [] getRandomTextsEN(Random r, int count, int min, int bound)
+	public static String [] getRandomTextsEN(RandomGenerator randomGenerator, int count, int min, int bound)
 	{
-		return getRandomTexts(r, count, min, bound, ALPHABET_ALL_EN);
+		return getRandomTexts(randomGenerator, count, min, bound, ALPHABET_ALL_EN);
 	}
 
-	public static String [] getRandomTextsEN(Random r, int count, int n)
+	public static String [] getRandomTextsEN(RandomGenerator randomGenerator, int count, int n)
 	{
-		return getRandomTexts(r, count, n, ALPHABET_ALL_EN);
+		return getRandomTexts(randomGenerator, count, n, ALPHABET_ALL_EN);
 	}
 
 	public static String getShortestPangramEN(String s)

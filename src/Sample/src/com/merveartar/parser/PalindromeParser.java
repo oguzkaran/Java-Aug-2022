@@ -2,6 +2,7 @@ package com.merveartar.parser;
 
 import org.csystem.parser.character.CharacterParser;
 import org.csystem.parser.character.ICharacterSource;
+import org.csystem.util.console.Console;
 import org.csystem.util.string.StringUtil;
 
 public class PalindromeParser extends CharacterParser {
@@ -10,10 +11,20 @@ public class PalindromeParser extends CharacterParser {
 
     private boolean m_parsed;
 
+    public PalindromeParser()
+    {
+        this(null);
+    }
+
     public PalindromeParser(ICharacterSource source)
     {
         super(source);
         m_text = "";
+    }
+
+    public void setSource(ICharacterSource source)
+    {
+        characterSource = source;
     }
 
     public boolean isPalindrome()
