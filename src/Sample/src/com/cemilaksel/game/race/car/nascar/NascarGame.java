@@ -1,4 +1,4 @@
-package com.com.cemilaksel.game.race.car.nascar;
+package com.cemilaksel.game.race.car.nascar;
 
 import org.csystem.game.template.IGame;
 
