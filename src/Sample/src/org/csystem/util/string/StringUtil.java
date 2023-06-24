@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: StringUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 17.06.2023
+	LAST UPDATE	: 24.06.2023
 
 	Utility class for string operations
 
@@ -12,6 +12,7 @@ package org.csystem.util.string;
 
 import org.csystem.util.array.ArrayUtil;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.random.RandomGenerator;
 
@@ -294,17 +295,32 @@ public final class StringUtil {
 
 	public static String join(String [] s, char delimiter)
 	{
-		return join(s, delimiter + "");
+		return join(s, String.valueOf(delimiter));
 	}
 
 	public static String join(String [] s, String delimiter)
 	{
-		String result = "";
+		StringBuilder sb = new StringBuilder();
 
 		for (String str : s)
-			result += str + delimiter;
+			sb.append(str).append(delimiter);
 
-		return result.substring(0, result.length() - delimiter.length());
+		return sb.substring(0, sb.length() - delimiter.length());
+	}
+
+
+	public static String join(ArrayList<String> list, char delimiter)
+	{
+		return join(list, String.valueOf(delimiter));
+	}
+	public static String join(ArrayList<String> list, String delimiter)
+	{
+		StringBuilder sb = new StringBuilder();
+
+		for (String str : list)
+			sb.append(str).append(delimiter);
+
+		return sb.substring(0, sb.length() - delimiter.length());
 	}
 	
 	public static String padLeading(String s, int len, char ch)
@@ -329,7 +345,13 @@ public final class StringUtil {
 	public static String padTrailing(String s, int len)
 	{
 		return padTrailing(s, len, ' ');
-	}		
+	}
+
+	public static void print(ArrayList<String> list)
+	{
+		for (String s : list)
+			System.out.println(s);
+	}
 	
 	public static String repeat(int count, char ch)
 	{
@@ -351,33 +373,31 @@ public final class StringUtil {
 
 	public static String [] split(String str, String delimiters, boolean removeEmptyEntries)
 	{
-		String pattern = "[";
-
+		StringBuilder patternBuilder = new StringBuilder();
 		int len = delimiters.length();
+
 
 		for (int i = 0; i < len; ++i) {
 			char c = delimiters.charAt(i);
-			pattern += (c == '[' || c == ']') ? ("\\" + c) : c;
+			patternBuilder.append((c == '[' || c == ']') ? ("\\" + c) : c);
 		}
 
-		pattern += "]" + (removeEmptyEntries ? "+" : "");
-
-		return str.split(pattern);
+		return str.split(patternBuilder.append("]").append(removeEmptyEntries ? "+" : "").toString());
 	}
 
 	public static String squeeze(String s1, String s2)
 	{
-		String str = "";
+		StringBuilder sb = new StringBuilder();
 		int len = s1.length();
 
 		for (int i = 0; i < len; ++i) {
 			char c = s1.charAt(i);
 
-			if (!s2.contains(c + ""))
-				str += c;
+			if (!s2.contains(String.valueOf(c)))
+				sb.append(c);
 		}
 
-		return str;
+		return sb.toString();
 	}
 	
 	public static String trimLeading(String s)
@@ -403,7 +423,7 @@ public final class StringUtil {
 
 	public static String wrapWith(String s, char prefix, char suffix)
 	{
-		return wrapWith(s, prefix + "", suffix + "");
+		return wrapWith(s, String.valueOf(prefix), String.valueOf(suffix));
 	}
 
 	public static String wrapWith(String s, String prefix, String suffix)
@@ -413,7 +433,7 @@ public final class StringUtil {
 
 	public static String wrapWithStrip(String s, char prefix, char suffix)
 	{
-		return wrapWithStrip(s, prefix + "", suffix + "");
+		return wrapWithStrip(s, String.valueOf(prefix), String.valueOf(suffix));
 	}
 
 	public static String wrapWithStrip(String s, String prefix, String suffix)

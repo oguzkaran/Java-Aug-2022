@@ -1,9 +1,8 @@
 /*-----------------------------------------------------------------------------------------------------------------------
-	Generic açılımlarda temel türler için wrapper sınıf karşılıkları kullanılır
+	Generic sınıfların generic bir parametresi türünden static veri elemanı olamaz. Çünkü generic açılımlar tür farklılığı
+	yaratmaz. Dolayısıyla anlamsızdır
 -----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
-
-import java.util.ArrayList;
 
 class App {
 	public static void main(String [] args)
@@ -12,8 +11,8 @@ class App {
 	}
 }
 
-class A<T> {
-	private T m_t;
-	//...
+class Sample<T> {
+	public static int x;
+	public static T y; //error
 }
 
