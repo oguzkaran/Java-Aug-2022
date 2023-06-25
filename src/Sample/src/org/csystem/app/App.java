@@ -1,6 +1,6 @@
 /*-----------------------------------------------------------------------------------------------------------------------
-	Generic sınıfların generic bir parametresi türünden static veri elemanı olamaz. Çünkü generic açılımlar tür farklılığı
-	yaratmaz. Dolayısıyla anlamsızdır
+	Generic parametre türünden dizi aşağıdaki gibi yaratılabilir. Aslında tek yöntem bu değildir. Kodda verilen uyarıyı
+	dikkate almayınız
 -----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
@@ -11,8 +11,14 @@ class App {
 	}
 }
 
-class Sample<T> {
-	public static int x;
-	public static T y; //error
+class A<T> {
+	private T []m_t;
+
+	public A(int count)
+	{
+		m_t = (T[])new Object[count]; // Uyarıyı görmezden geliniz
+	}
+
+	//...
 }
 
