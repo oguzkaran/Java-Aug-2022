@@ -119,6 +119,11 @@ public final class Console {
         write(format + "\n", args);
     }
 
+    public static void writeErrLine(String format, Object...args)
+    {
+        System.err.printf(format + "\n", args);
+    }
+
     public static void writeLine()
     {
         System.out.println();
