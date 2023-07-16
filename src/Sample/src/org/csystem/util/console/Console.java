@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: Console.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 17.06.2023
+	LAST UPDATE	: 16.07.2023
 
 	Utility class for standard input and output operations
 
@@ -95,10 +95,35 @@ public final class Console {
         }
     }
 
+    public static String readString()
+    {
+        return readString("");
+    }
+
     public static String readString(String prompt)
     {
         write(prompt);
         return KB.nextLine();
+    }
+
+    public static char readChar()
+    {
+        return readChar("");
+    }
+
+    public static char readChar(String prompt)
+    {
+        return readChar(prompt, "");
+    }
+
+    public static char readChar(String prompt, String invalidMessage)
+    {
+        String str;
+
+        while ((str = readString(prompt)).length() != 1)
+            Console.write(invalidMessage);
+
+        return str.charAt(0);
     }
 
     //...

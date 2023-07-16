@@ -1,9 +1,10 @@
 package org.csystem.app.io.file;
 
 import org.csystem.util.console.Console;
-import static org.csystem.util.console.commandline.CommandLineArgsUtil.*;
 
 import java.io.File;
+
+import static org.csystem.util.console.commandline.CommandLineArgsUtil.checkLengthEquals;
 
 public class ListDetailsApp {
     private static String getPath(String [] args)
@@ -14,14 +15,6 @@ public class ListDetailsApp {
         checkLengthEquals(args.length, 1, "Wrong number of arguments!...");
 
         return args[0];
-    }
-
-    private static void checkLength(int length)
-    {
-        if (length != 1) {
-            System.err.println("Wrong number of arguments!...");
-            System.exit(1);
-        }
     }
 
     private static void doForDirectory(File dir)
