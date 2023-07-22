@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: CommandLineUtil.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 15.07.2023
+	LAST UPDATE	: 22.07.2023
 
 	Utility class for Command Line Arguments
 
@@ -29,6 +29,34 @@ public final class CommandLineArgsUtil {
     {
         checkLengthEquals(length, value, message, 1);
     }
+
+    public static void checkLengthGreater(int length, int value, String message, int exitCode)
+    {
+        if (length <= value) {
+            Console.writeErrLine(message);
+            System.exit(exitCode);
+        }
+    }
+
+    public static void checkLengthGreater(int length, int value, String message)
+    {
+        checkLengthGreater(length, value, message, 1);
+    }
+
+    public static void checkLengthLess(int length, int value, String message, int exitCode)
+    {
+        if (length >= value) {
+            Console.writeErrLine(message);
+            System.exit(exitCode);
+        }
+    }
+
+    public static void checkLengthLess(int length, int value, String message)
+    {
+        checkLengthLess(length, value, message, 1);
+    }
+
+
 
     //...
 }
