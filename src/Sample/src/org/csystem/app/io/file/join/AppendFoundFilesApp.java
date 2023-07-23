@@ -10,7 +10,7 @@ import java.nio.file.Path;
 import static org.csystem.util.console.commandline.CommandLineArgsUtil.checkLengthGreater;
 
 public class AppendFoundFilesApp {
-    private static void concat(Path path, FileOutputStream fos) throws IOException
+    private static void append(Path path, FileOutputStream fos)
     {
         try {
             Files.copy(path, fos);
@@ -25,7 +25,7 @@ public class AppendFoundFilesApp {
 
         try (FileOutputStream fos = new FileOutputStream(args[args.length - 1], true)) {
             for (int i = 0; i < args.length - 1; ++i)
-                concat(Path.of(args[i]), fos);
+                append(Path.of(args[i]), fos);
 
             Console.writeLine("Successful");
         }
