@@ -2,16 +2,27 @@ package org.csystem.app.io.file.output;
 
 import org.csystem.util.console.Console;
 import org.csystem.util.converter.BitConverter;
+import org.csystem.util.string.StringUtil;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Random;
 
 import static org.csystem.util.console.Console.readInt;
 import static org.csystem.util.console.commandline.CommandLineArgsUtil.checkLengthEquals;
 
-public class AppendRandomIntsApp {
+public class AppendRandomStringsApp {
+    private static void writeString(String str, FileOutputStream fos) throws IOException
+    {
+        byte [] data = BitConverter.getBytes(str, StandardCharsets.UTF_8);
+        byte [] dataLength = BitConverter.getBytes(data.length);
+
+        fos.write(dataLength);
+        fos.write(data);
+    }
+
     public static void run(String[] args)
     {
         checkLengthEquals(args.length, 1, "Wrong number of arguments!...");
@@ -21,12 +32,10 @@ public class AppendRandomIntsApp {
             int count = readInt("Input count:", "Invalid count value!...");
 
             while (count-- > 0) {
-                int val = random.nextInt(100);
+                String str = StringUtil.getRandomTextTR(random, random.nextInt(5, 10));
 
-                Console.write("%d ", val);
-                byte [] data = BitConverter.getBytes(val);
-
-                fos.write(data);
+                Console.writeLine("%s", str);
+                writeString(str, fos);
             }
 
             Console.writeLine();

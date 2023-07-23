@@ -9,22 +9,22 @@ import java.io.IOException;
 
 import static org.csystem.util.console.commandline.CommandLineArgsUtil.checkLengthEquals;
 
-public class ReadIntsApp {
+public class ReadDoublesApp {
     public static void run(String[] args)
     {
         checkLengthEquals(args.length, 1, "Wrong number of arguments!...");
 
         try (FileInputStream fis = new FileInputStream(args[0])) {
             int result;
-            byte [] data = new byte[Integer.BYTES];
+            byte [] data = new byte[Double.BYTES];
 
             while ((result = fis.read(data)) != -1) {
                 if (result != data.length)
                     throw new IOException("Invalid file format!...");
 
-                int val = BitConverter.toInt(data);
+                double val = BitConverter.toDouble(data);
 
-                Console.write("%d ", val);
+                Console.writeLine("%f", val);
             }
 
             Console.writeLine();

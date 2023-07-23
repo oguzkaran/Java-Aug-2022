@@ -1,30 +1,32 @@
-package org.csystem.app.io.file.input;
+package org.csystem.app.io.file.output;
 
 import org.csystem.util.console.Console;
 import org.csystem.util.converter.BitConverter;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Random;
 
+import static org.csystem.util.console.Console.readInt;
 import static org.csystem.util.console.commandline.CommandLineArgsUtil.checkLengthEquals;
 
-public class ReadIntsApp {
+public class AppendRandomDoublesApp {
     public static void run(String[] args)
     {
         checkLengthEquals(args.length, 1, "Wrong number of arguments!...");
 
-        try (FileInputStream fis = new FileInputStream(args[0])) {
-            int result;
-            byte [] data = new byte[Integer.BYTES];
+        try (FileOutputStream fos = new FileOutputStream(args[0], true)) {
+            Random random = new Random();
+            int count = readInt("Input count:", "Invalid count value!...");
 
-            while ((result = fis.read(data)) != -1) {
-                if (result != data.length)
-                    throw new IOException("Invalid file format!...");
+            while (count-- > 0) {
+                double val = random.nextDouble(-3.35, 5.67);
 
-                int val = BitConverter.toInt(data);
+                Console.writeLine("%f", val);
+                byte [] data = BitConverter.getBytes(val);
 
-                Console.write("%d ", val);
+                fos.write(data);
             }
 
             Console.writeLine();
