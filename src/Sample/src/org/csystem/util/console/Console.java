@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: Console.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 16.07.2023
+	LAST UPDATE	: 30.07.2023
 
 	Utility class for standard input and output operations
 
@@ -120,10 +120,10 @@ public final class Console {
     {
         String str;
 
-        while ((str = readString(prompt)).length() != 1)
+        while ((str = readString(prompt)).length() != 1 && !str.isEmpty())
             Console.write(invalidMessage);
 
-        return str.charAt(0);
+        return str.isEmpty() ? '\n' : str.charAt(0);
     }
 
     //...
