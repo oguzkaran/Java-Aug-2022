@@ -18,13 +18,16 @@ public class ReadBytesApp {
 
         try (FileInputStream fis = new FileInputStream(args[0])) {
             int result;
+            int count = 0;
 
             while ((result = fis.read()) != -1) {
                 byte val = (byte)result;
+
                 Console.write("%d ", val);
             }
 
             Console.writeLine();
+
         }
         catch (FileNotFoundException ex) {
             Console.writeErrLine("Problem occurs while opening:%s", ex.getMessage());
