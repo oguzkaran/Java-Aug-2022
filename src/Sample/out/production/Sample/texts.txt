@@ -1,0 +1,12 @@
+ankar
+istanbul
+izmir
+elma
+mus
+erzincan
+balikesir,
+sinop
+samsun
+ali
+veli
+selami
