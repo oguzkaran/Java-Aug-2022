@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: Console.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 30.07.2023
+	LAST UPDATE	: 12.08.2023
 
 	Utility class for standard input and output operations
 
@@ -88,6 +88,30 @@ public final class Console {
                 System.out.print(prompt);
 
                 return Long.parseLong(KB.nextLine());
+            }
+            catch (NumberFormatException ignore) {
+                System.out.print(invalidMessage);
+            }
+        }
+    }
+
+    public static short readShort()
+    {
+        return readShort("");
+    }
+
+    public static short readShort(String prompt)
+    {
+        return readShort(prompt, "");
+    }
+
+    public static short readShort(String prompt, String invalidMessage)
+    {
+        while (true) {
+            try {
+                System.out.print(prompt);
+
+                return Short.parseShort(KB.nextLine());
             }
             catch (NumberFormatException ignore) {
                 System.out.print(invalidMessage);
