@@ -2,7 +2,7 @@ package org.csystem.util.image.bitmap;
 
 public class BitmapHeaderCommon {
     private byte [] m_identity = new byte[2];
-    private int m_sizeInBytes;
+    private int m_sizeOfFile;
     private byte [] m_reserved1 = new byte[2];
     private byte [] m_reserved2 = new byte[2];
     private long m_pixelsStartOffset;
@@ -17,14 +17,14 @@ public class BitmapHeaderCommon {
         m_identity = identity;
     }
 
-    public int getSizeInBytes()
+    public int getSizeOfFile()
     {
-        return m_sizeInBytes;
+        return m_sizeOfFile;
     }
 
-    public void setSizeInBytes(int sizeInBytes)
+    public void setSizeOfFile(int sizeOfFile)
     {
-        m_sizeInBytes = sizeInBytes;
+        m_sizeOfFile = sizeOfFile;
     }
 
     public byte[] getReserved1()

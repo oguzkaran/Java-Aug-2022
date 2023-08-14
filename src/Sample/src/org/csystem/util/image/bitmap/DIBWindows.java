@@ -27,7 +27,7 @@ public class DIBWindows extends Image {
         if (imageRaf.read(data) != Integer.BYTES)
             throw new IOException("Invalid format!...");
 
-        m_dibWindowsHeader.setSizeInBytes(ByteBuffer.wrap(data).order(ByteOrder.LITTLE_ENDIAN).getInt(0));
+        m_dibWindowsHeader.setSizeOfFile(ByteBuffer.wrap(data).order(ByteOrder.LITTLE_ENDIAN).getInt(0));
     }
 
     private void readPixelsStartOffset() throws IOException
@@ -146,7 +146,7 @@ public class DIBWindows extends Image {
 
     public int getSizeIntBytes()
     {
-        return m_dibWindowsHeader.getSizeInBytes();
+        return m_dibWindowsHeader.getSizeOfFile();
     }
 
     public byte[] getReserved1()
