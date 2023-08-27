@@ -8,15 +8,12 @@ import java.io.*;
 import static org.csystem.util.console.commandline.CommandLineArgsUtil.checkLengthEquals;
 
 public class SerializeSensorsApp {
-    public static void run(String[] args)
+    private static void writeObjects(String path) throws IOException
     {
-        checkLengthEquals(args.length, 1, "Wrong number of arguments!...");
-
-        try (FileOutputStream fos = new FileOutputStream(args[0], true);
-             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-
-            while (true) {
+        while (true) {
+            try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path, true))) {
                 int id = Console.readInt("Input id:");
+
                 if (id <= 0)
                     break;
 
@@ -25,9 +22,17 @@ public class SerializeSensorsApp {
                 Sensor sensor = new Sensor(id, name);
 
                 oos.writeObject(sensor);
+                oos.flush();
             }
+        }
+    }
 
-            Console.writeLine();
+    public static void run(String[] args)
+    {
+        checkLengthEquals(args.length, 1, "Wrong number of arguments!...");
+
+        try  {
+            writeObjects(args[0]);
         }
         catch (InvalidClassException ex) {
             Console.writeErrLine("Invalid class to serialize:%s", ex.getMessage());

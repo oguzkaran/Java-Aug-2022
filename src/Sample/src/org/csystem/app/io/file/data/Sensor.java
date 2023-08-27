@@ -1,8 +1,11 @@
 package org.csystem.app.io.file.data;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Sensor implements Serializable {
+    @Serial
+    private static final long serialVersionUID = -1L;
     private int m_id;
     private String m_name;
 
@@ -30,5 +33,11 @@ public class Sensor implements Serializable {
     public void setName(String name)
     {
         m_name = name;
+    }
+
+
+    public String toString()
+    {
+        return String.format("[%d]%s", m_id, m_name);
     }
 }
