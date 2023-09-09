@@ -1,5 +1,6 @@
 package org.csystem.app.io.file.output;
 
+import org.csystem.app.io.file.data.ConnectionInfo;
 import org.csystem.app.io.file.data.Sensor;
 import org.csystem.util.console.Console;
 
@@ -13,7 +14,13 @@ public class SerializeSensorsApp {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path, true))) {
             int id = Console.readInt("Input id:");
             String name = Console.readString("Input name:");
-            Sensor sensor = new Sensor(id, name);
+            String description = Console.readString("Input description:");
+            int port = Console.readInt("Input port number:");
+            String host = Console.readString("Input host:");
+            ConnectionInfo connectionInfo = new ConnectionInfo(port, host);
+            Sensor sensor = new Sensor(id, name, connectionInfo);
+
+            sensor.setDescription(description);
 
             oos.writeObject(sensor);
             oos.flush();

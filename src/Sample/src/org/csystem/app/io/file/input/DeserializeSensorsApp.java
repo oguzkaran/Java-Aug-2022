@@ -1,5 +1,6 @@
 package org.csystem.app.io.file.input;
 
+import org.csystem.app.io.file.data.ConnectionInfo;
 import org.csystem.app.io.file.data.Sensor;
 import org.csystem.util.console.Console;
 
@@ -14,7 +15,12 @@ public class DeserializeSensorsApp {
             ObjectInputStream ois = new ObjectInputStream(fis);
             Sensor s = (Sensor) ois.readObject();
 
-            Console.writeLine(s);
+            String description = s.getDescription();
+            ConnectionInfo connectionInfo = s.getConnectionInfo();
+
+            Console.writeLine("%s, Description:%s, Port:%s, Host:%s", s, description == null ? "No description" : description,
+                    connectionInfo == null ? "No port specified" : connectionInfo.getPortNum(),
+                    connectionInfo == null ? "No host specified" : connectionInfo.getHost());
         }
     }
 
