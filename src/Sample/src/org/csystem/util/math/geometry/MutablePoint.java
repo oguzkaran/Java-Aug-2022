@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 	FILE		: MutablePoint.java
 	AUTHOR		: Java-Aug-2022 Group
-	LAST UPDATE	: 25.03.2023
+	LAST UPDATE	: 24.09.2023
 
 	MutablePoint class that represents 2 dimensional point in
 	Cartesian plane
@@ -11,7 +11,12 @@
 ----------------------------------------------------------------*/
 package org.csystem.util.math.geometry;
 
-public class MutablePoint {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class MutablePoint implements Serializable {
+	@Serial
+	private static final long serialVersionUID = -1L;
 	private double m_x;
 	private double m_y;
 
