@@ -10,7 +10,7 @@ import java.nio.file.Path;
 
 import static org.csystem.util.console.commandline.CommandLineArgsUtil.checkLengthEquals;
 
-public class BackupAndCopyApp {
+public class BackupAndCopyConfirmApp {
     private static void checkIfDirectory(Path srcPath, Path destPath)
     {
         if (Files.isDirectory(srcPath) || Files.isDirectory(destPath)) {
@@ -22,7 +22,7 @@ public class BackupAndCopyApp {
     private static void backupAndCopy(Path srcPath, Path destPath) throws IOException
     {
         checkIfDirectory(srcPath, destPath);
-        BackupAndCopy backupAndCopy = new BackupAndCopy(srcPath, destPath, "-bak");
+        BackupAndCopyConfirm backupAndCopy = new BackupAndCopyConfirm(srcPath, destPath, "-bak", "Do you want to overwrite?");
 
         backupAndCopy.doCopy();
     }
